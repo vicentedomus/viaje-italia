@@ -15,8 +15,9 @@ tener todo el contexto necesario para trabajar.
 - **Viajeros:** 2 adultos (Vicente + acompañante)
 - **Origen / destino:** Cancún (CUN) ⇄ Milán Malpensa (MXP)
 - **Fechas:** vie 25 sep 2026 → lun 12 oct 2026 (16 noches en tierra)
-- **Aerolínea:** Condor (Economy), Booking #16267799, ~$17,888 MXN total ✅
-- **Estructura:** Milán → Venecia → Bolonia → Florencia → Roma → Nápoles → Lecce → Pisa/La Spezia → **Volterra (reservado 9–11 oct)** → Milán → vuelo
+- **Aerolínea (internacional):** Condor (Economy), Booking #16267799, ~$17,888 MXN total ✅
+- **Estructura (rediseño con París):** Milán → Como → Bérgamo → Verona → Venecia → Padua → Bérgamo → ✈️ **París (3 noches)** → ✈️ Roma → Florencia → Pisa → **Volterra (reservado 9–11 oct)** → Milán → vuelo
+- **2 vuelos low-cost nuevos por reservar:** Bérgamo→París (2 oct), París→Roma (5 oct)
 - **Único hospedaje confirmado:** Hotel La Locanda, Volterra (9–11 oct)
 
 ---
@@ -28,7 +29,7 @@ tener todo el contexto necesario para trabajar.
 | `CLAUDE.md` | Este archivo. Contexto general + convenciones de trabajo. |
 | `README.md` | Vista humana rápida con estado del viaje. |
 | `docs/vuelos.md` | Detalle de vuelos reservados y pendientes. |
-| `docs/hospedajes.md` | Tracker de hospedajes (1 confirmado, 9 pendientes). |
+| `docs/hospedajes.md` | Tracker de hospedajes (1 confirmado, 8 pendientes). |
 | `docs/ciudades.md` | Clasificación de ciudades y decisiones tomadas. |
 | `docs/itinerario.md` | Recorrido día por día (16 noches). |
 | `docs/transporte.md` | Estimación de costos de transporte entre ciudades. |
@@ -51,10 +52,12 @@ tener todo el contexto necesario para trabajar.
 
 ## Estado actual (29 may 2026)
 
-- ✅ Vuelos reservados y pagados (Condor, Booking #16267799).
-- ✅ Selección de asientos hecha.
+- ✅ Vuelos internacionales reservados y pagados (Condor CUN⇄MXP, Booking #16267799).
+- ✅ Selección de asientos hecha (vuelo Condor).
 - ✅ Hotel La Locanda (Volterra, 9–11 oct) reservado, pago en hotel.
-- ⏳ 9 hospedajes pendientes de reservar.
-- ⏳ Trenes entre ciudades pendientes (Frecciarossa / Italo).
-- ⏳ Vuelo interno Brindisi → Pisa (8 oct) pendiente.
-- ⏳ Entradas a museos/atracciones pendientes.
+- 🔵 Itinerario rediseñado con **París** (3 noches) y **Bérgamo** como hub; sur de Italia fuera.
+- ⏳ 8 hospedajes pendientes de reservar.
+- ⏳ **2 vuelos low-cost** por reservar: Bérgamo→París (2 oct), París→Roma (5 oct).
+- ⏳ Trenes/buses entre ciudades pendientes (Frecciarossa + regionales).
+- ⏳ Entradas a museos/atracciones pendientes (Uffizi, Vaticano, Coliseo, Louvre…).
+- 🔎 Precios/horarios a confirmar en vivo (Omio) desde sesión local.
