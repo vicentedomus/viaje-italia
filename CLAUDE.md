@@ -31,6 +31,7 @@ tener todo el contexto necesario para trabajar.
 | `docs/hospedajes.md` | Tracker de hospedajes (1 confirmado, 9 pendientes). |
 | `docs/ciudades.md` | Clasificación de ciudades y decisiones tomadas. |
 | `docs/itinerario.md` | Recorrido día por día (16 noches). |
+| `docs/transporte.md` | Estimación de costos de transporte entre ciudades. |
 | `docs/presupuesto.md` | Presupuesto y gastos. |
 | `docs/pendientes.md` | Lista de pendientes (reservas y documentos). |
 

@@ -34,5 +34,6 @@ Milán → Venecia → Bolonia → Florencia → Roma → Nápoles → Lecce →
 - [Hospedajes](./docs/hospedajes.md)
 - [Ciudades](./docs/ciudades.md)
 - [Itinerario](./docs/itinerario.md)
+- [Transporte](./docs/transporte.md)
 - [Presupuesto](./docs/presupuesto.md)
 - [Pendientes](./docs/pendientes.md)
