@@ -1,76 +1,69 @@
 # Transporte entre ciudades — estimación de costos
 
-Estimación del costo de moverse entre las bases del itinerario. Reconstruida con
-las tarifas que agrega **Omio** (Trenitalia/Italo para trenes, Ryanair para el
-vuelo interno, buses CPT/ATC para la última milla).
+Plan rediseñado (Italia + París). Estimación con tarifas tipo Omio (Trenitalia/
+Trenord/Italo, Ryanair/low-cost, buses locales).
 
-> ⚠️ **No es precio bookable todavía.** En mayo 2026 aún no abren ventas para
-> sep–oct 2026 (Trenitalia/Italo abren ~4 meses antes). Son **rangos estimados**
-> basados en tarifas actuales (2025–2026); los trenes de alta velocidad usan
-> precios dinámicos tipo aerolínea, así que **comprar con anticipación = tarifa
-> Economy/Super-Economy** (la columna que uso abajo). Comprar el mismo día puede
-> costar 2–3× más (tarifa Base).
+> 🔎 = **confirmar en vivo** vía Omio en sesión local (ver [`tools/`](../tools/README.md)),
+> sobre todo los **2 vuelos** (precio depende de maleta y anticipación).
+> ⚠️ En mayo 2026 los trenes de alta velocidad de sep–oct aún se compran con
+> anticipación = tarifa Economy (la que uso). El usuario validó que ya hay
+> disponibilidad para las fechas.
 
 ## Supuestos
 
-- **2 viajeros.** Las columnas muestran precio **por persona** y **×2 (pareja)**.
-- Tarifas de tren = **Economy/advance** (comprando con semanas/meses de anticipación).
-- Tipo de cambio referencia: **€1 ≈ 20 MXN** (consistente con la reserva de Volterra: €244 ≈ $4,903 MXN).
-- Day-trips (Como, Padova, Porto Venere) = ida y vuelta.
+- **2 viajeros.** Columnas: precio **por persona** y **×2 (pareja)**.
+- Trenes regionales (Como, Verona, Padua, Bérgamo, Florencia–Pisa) = precio fijo, sin anticipación.
+- Alta velocidad (Roma→Florencia, Volterra→Milán vía Frecciarossa) = tarifa Economy anticipada.
+- Vuelos low-cost = tarifa con **1 maleta documentada** + asiento (por eso suben).
+- Tipo de cambio: **€1 ≈ 20 MXN**.
 
-## Tramos del itinerario
+## Tramos
 
-| # | Fecha | Tramo | Modo | Duración | €/persona | €/pareja |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | dom 27 sep | Milán ⇄ **Como** (day-trip) | Regionale | ~40–60 min | ~€10 (ida y vuelta) | ~€20 |
-| 2 | lun 28 sep | Milán → **Venecia** (parada Verona) | Frecciarossa | ~2h15 | ~€30–40 | ~€70 |
-| 3 | mar 29 sep | Venecia ⇄ **Padova** (day-trip) | Regionale | ~25–50 min | ~€10 (ida y vuelta) | ~€20 |
-| 4 | mié 30 sep | Venecia → **Bolonia** | Frecciarossa | ~1h05 | ~€20–30 | ~€50 |
-| 5 | jue 1 oct | Bolonia → **Florencia** | Frecciarossa | ~37 min | ~€18–28 | ~€44 |
-| 6 | sáb 3 oct | Florencia → **Roma** | Frecciarossa | ~1h30 | ~€20–35 (desde €19.90) | ~€60 |
-| 7 | mar 6 oct | Roma → **Nápoles** | Frecciarossa/Italo | ~1h10 | ~€20–30 (desde €19.90) | ~€50 |
-| 8 | mié 7 oct | Nápoles → **Lecce** (parada Bari) | Frecciargento/IC | ~5h20–6h | ~€30–45 (desde €9 muy anticipado) | ~€80 |
-| 9 | jue 8 oct | Lecce → aeropuerto **Brindisi (BDS)** | Tren + bus | ~40–60 min | ~€8 | ~€16 |
-| 10 | jue 8 oct | ✈️ **Brindisi (BDS) → Pisa (PSA)** | Ryanair | ~1h25 | ~€50–70 (con maleta documentada) | ~€120 |
-| 11 | jue 8 oct | **Porto Venere** day-trip (Pisa↔La Spezia + bus/ferry) | Tren + bus/ferry | ~1h c/u | ~€25 (ida y vuelta) | ~€50 |
-| 12 | vie 9 oct | Pisa → **Volterra** | Tren + bus CPT | ~2h35 | ~€7–14 | ~€24 |
-| 13 | dom 11 oct | Volterra → **Milán (cerca MXP)** | Bus + Frecciarossa | ~5–6h | ~€50–60 | ~€110 |
+| # | Fecha | Tramo | Modo | €/persona | €/pareja |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 28 sep | Milán → **Como** → Bérgamo | Regionale (×2 tramos) | ~€13 | ~€26 |
+| 2 | 29 sep | Bérgamo → **Verona** → Venecia | Regionale | ~€20–30 | ~€50 |
+| 3 | 1 oct | Venecia → **Padua** → Bérgamo | Regionale | ~€19 | ~€38 |
+| 4 | 2 oct | ✈️ **Bérgamo (BGY) → París** | Ryanair/low-cost | ~€60–90 (con maleta) 🔎 | ~€150 🔎 |
+| 5 | 5 oct | ✈️ **París → Roma (FCO)** | low-cost/ITA | ~€70–100 (con maleta) 🔎 | ~€170 🔎 |
+| 6 | 8 oct | Roma → **Florencia** | Frecciarossa | ~€20–35 | ~€60 |
+| 7 | 9 oct | Florencia → **Pisa** → Volterra | Regionale + bus CPT | ~€21 | ~€42 |
+| 8 | 11 oct | Volterra → **Milán (cerca MXP)** | Bus + Frecciarossa | ~€50–60 | ~€110 |
+
+### Transfers de aeropuerto (aparte)
+
+- **París (Beauvais BVA):** si el vuelo de Ryanair llega a Beauvais, está lejos de
+  París → shuttle ~1h15, ~€17/persona cada vía. Si consiguen vuelo a Orly/CDG, mejor. 🔎
+- **BGY, FCO:** bus/tren al centro, ~€5–15/persona por trayecto.
+- Presupuestar ~**€40–60 / pareja** en transfers de aeropuerto.
 
 ## Totales estimados
 
-| Escenario | €/persona | €/pareja | MXN/pareja (≈) |
-| --- | --- | --- | --- |
-| **Comprando con anticipación** (Economy) | ~€350–400 | **~€700–800** | **≈ $14,000–16,000** |
-| Comprando tarde / tarifas Base | ~€550–700 | ~€1,100–1,400 | ≈ $22,000–28,000 |
+| Escenario | €/pareja | MXN/pareja (≈) |
+| --- | --- | --- |
+| **Anticipado** (trenes Economy + vuelos con maleta) | ~€670–760 + transfers | **≈ $14,000–16,000** |
+| Tardío / tarifas altas | ~€1,000–1,300 | ≈ $20,000–26,000 |
 
-**Planning recomendado: ≈ $15,000 MXN (pareja)** para todo el transporte terrestre +
-el vuelo interno, si se reserva con tiempo.
+**Planning recomendado: ≈ $16,000 MXN (pareja)** para todo el transporte terrestre
++ los 2 vuelos + transfers, reservando con tiempo. **Los 2 vuelos son el mayor
+costo y el más volátil** → confirmarlos primero en la sesión local.
 
 ## Notas y palancas de ahorro
 
-- **Trenes de alta velocidad:** comprar apenas abran ventas (≈ junio 2026 para
-  sep–oct). La diferencia Economy vs Base es enorme (ej. Roma–Venecia: €29.90 vs €99).
-- **Italo vs Trenitalia:** en Florencia–Roma–Nápoles compiten; comparar ambos suele bajar el precio.
-- **Vuelo Brindisi→Pisa:** la tarifa base de Ryanair arranca en ~€15–20, pero como
-  llevan **maleta documentada**, el costo real sube por la maleta de bodega +
-  asiento. Presupuestar €50–70/persona y reservar maleta al comprar (es más barata que en el aeropuerto).
-- **Nápoles→Lecce:** tramo largo (~6h). Si quieren la parada en Bari, conviene
-  comprar **Nápoles→Bari** y **Bari→Lecce** por separado (regionale Bari–Lecce ~€10).
-- **Pisa→Volterra:** no hay tren directo. Ruta económica = tren a Pontedera o Cecina
-  + bus CPT (línea 500 vía Pontedera, o línea 790 vía Cecina, ~€3.50). Alternativa
-  cómoda con maletas: taxi del último tramo (~€60–80 el coche, no por persona).
-- **Day-trips regionales** (Como, Padova): billete regionale de precio fijo, sin
-  necesidad de anticipación; se compran el mismo día.
-- **Porto Venere:** el mismo 8 oct llegan en avión a Pisa — el day-trip queda
-  apretado. Considerar moverlo a la mañana del 9 oct antes de subir a Volterra, o
-  acortarlo. Bus La Spezia↔Porto Venere ~€2.50/trayecto; ferry ~€17–24 (más escénico).
+- **Vuelos primero (🔎):** BGY→París y París→Roma definen gran parte del presupuesto
+  y del horario de esos días. Reservar maleta al comprar (más barata que en aeropuerto).
+  Comparar aeropuerto de llegada en París (Beauvais vs Orly/CDG) por el costo+tiempo del transfer.
+- **Como→Bérgamo (28 sep):** no es directo; tren vía Lecco/Monza (~1h40–2h). Verificar horario 🔎.
+- **Verona y Padua = paradas:** comprar dos tramos regionales separados (permite bajar y seguir).
+- **9 oct (Florencia→Pisa→Volterra):** Pisa→Volterra no tiene tren directo: tren a
+  Pontedera/Cecina + bus CPT (línea 500/790, ~€3.50), o taxi del último tramo
+  (~€60–80 el coche, con maletas puede valer la pena).
+- **11 oct (Volterra→Milán):** tramo largo (~5–6 h). Bus a Pisa/Florencia + Frecciarossa
+  a Milán. Salir a medio día y comprar el Frecciarossa anticipado.
 
-## Fuentes
+## Fuentes (referencia de tarifas)
 
-- [seat61 — Frecciarossa / trenes en Italia](https://www.seat61.com/trains-and-routes/frecciarossa.htm) · [Train travel in Italy 2026](https://www.seat61.com/train-travel-in-italy.htm)
-- [Omio — Brindisi → Pisa (vuelos)](https://www.omio.com/flights/brindisi-airport/pisa-international-airport-fokyl) · [Ryanair Brindisi–Pisa](https://www.ryanair.com/flights/it/it/voli-da-brindisi-a-pisa)
-- [Omio — Pisa → Volterra](https://www.omio.com/travel/pisa/volterra) · [Rome2Rio Pisa→Volterra](https://www.rome2rio.com/s/Pisa/Volterra)
-- [Omio — Nápoles → Lecce](https://www.omio.com/trains/naples/lecce)
-- [Omio — La Spezia → Porto Venere (bus)](https://www.omio.com/buses/la-spezia/portovenere-enhef) · [Porto Venere — cómo llegar](https://www.porto-venere.com/en/how-to-get-to-portovenere)
+- [seat61 — trenes en Italia 2026](https://www.seat61.com/train-travel-in-italy.htm) · [Frecciarossa](https://www.seat61.com/trains-and-routes/frecciarossa.htm)
+- [Ryanair — rutas desde Bérgamo](https://www.ryanair.com/) · comparar en [Omio](https://www.omio.com/) (sesión local)
 
-> Snapshot: 28 may 2026. Verificar precios reales al abrir ventas.
+> Snapshot: 29 may 2026. Reemplazar 🔎 por precios reales desde la sesión local de Omio.

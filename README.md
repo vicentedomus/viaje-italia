@@ -18,15 +18,16 @@ presupuesto y pendientes.
 
 ## Itinerario en una línea
 
-Milán → Venecia → Bolonia → Florencia → Roma → Nápoles → Lecce → Pisa/La Spezia → **Volterra** → Milán
+Milán → Como → Bérgamo → Verona → Venecia → Padua → Bérgamo → ✈️ **París** → ✈️ Roma → Florencia → Pisa → **Volterra** → Milán
 
 ## Estado
 
-- ✅ Vuelos reservados y pagados
+- ✅ Vuelos internacionales reservados y pagados (Condor)
 - ✅ Hotel en Volterra (9–11 oct) reservado
-- ⏳ 9 hospedajes por reservar
-- ⏳ Trenes y vuelo interno Brindisi→Pisa por reservar
-- ⏳ Entradas a museos por comprar
+- 🔵 Itinerario rediseñado con París (3 noches); sur de Italia fuera
+- ⏳ 8 hospedajes por reservar
+- ⏳ 2 vuelos low-cost por reservar (Bérgamo→París, París→Roma)
+- ⏳ Trenes/buses y entradas a museos por reservar
 
 ## Documentación
 

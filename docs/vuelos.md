@@ -26,9 +26,21 @@
 
 **Total regreso:** 16h 30min. Salida muy temprana → conviene dormir cerca de MXP la noche del 11–12 oct.
 
+## Vuelos intra-Europa (nuevos · por reservar)
+
+El rediseño con París agrega 2 vuelos low-cost, **no incluidos** en la reserva Condor.
+Confirmar precio/horario en vivo (Omio, sesión local). Reservar **maleta documentada**
+al comprar (más barata que en aeropuerto).
+
+| Tramo | Fecha | Aerolínea probable | Notas |
+| --- | --- | --- | --- |
+| Bérgamo (BGY) → París | 2 oct (temprano) | Ryanair / low-cost | Verificar si llega a Beauvais (lejos) vs Orly/CDG 🔎 |
+| París → Roma (FCO) | 5 oct (temprano) | ITA / Vueling / low-cost | 🔎 |
+
 ## Pendientes de vuelo
 
-- [x] Selección de asientos
-- [ ] Check-in online (24–48 h antes)
+- [x] Selección de asientos (vuelo internacional Condor)
+- [ ] Check-in online Condor (24–48 h antes)
 - [ ] Guardar pase de abordar
-- [ ] Reservar vuelo interno Brindisi (BDS) → Pisa (PSA), mañana del 8 oct
+- [ ] Reservar vuelo Bérgamo → París (2 oct) con maleta
+- [ ] Reservar vuelo París → Roma (5 oct) con maleta
