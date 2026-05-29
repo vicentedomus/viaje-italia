@@ -37,3 +37,7 @@ Milán → Venecia → Bolonia → Florencia → Roma → Nápoles → Lecce →
 - [Transporte](./docs/transporte.md)
 - [Presupuesto](./docs/presupuesto.md)
 - [Pendientes](./docs/pendientes.md)
+
+## Herramientas
+
+- [`tools/`](./tools/README.md) — consultar precios/horarios de Omio en vivo desde una sesión local (conecta a tu Chrome vía CDP).
