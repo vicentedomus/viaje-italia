@@ -1,0 +1,10 @@
+# OS / editores
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Documentos sensibles locales (no subir confirmaciones/pdf con datos personales)
+*.local.md
+/private/
