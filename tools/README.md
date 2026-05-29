@@ -37,13 +37,13 @@ resultados** (trenes/buses/vuelos con horarios y precios).
 ## 4. Capturar para que Claude lo lea
 
 ```bash
-python3 tools/omio_cdp.py --label roma-napoli-6oct
+python3 tools/omio_cdp.py --label bergamo-paris-2oct
 ```
 
 Opcional, si ya tienes la URL de resultados:
 
 ```bash
-python3 tools/omio_cdp.py --url "https://www.omio.com/app/search-frontend/results/.../train?locale=en" --label roma-napoli-6oct
+python3 tools/omio_cdp.py --url "https://www.omio.com/app/search-frontend/results/.../flight?locale=en" --label bergamo-paris-2oct
 ```
 
 Deja un **screenshot** y un **.txt** en `tools/captures/`. Pásaselos a Claude
@@ -51,13 +51,38 @@ Deja un **screenshot** y un **.txt** en `tools/captures/`. Pásaselos a Claude
 transbordos y precios, y ajusta `docs/itinerario.md` / `docs/transporte.md` /
 `docs/presupuesto.md`.
 
+## Tramos a consultar — recorrido actual (Italia + París)
+
+Recorrido vigente: Milán → Como → Bérgamo → Verona → Venecia → Padua → Bérgamo →
+✈️ **París (3 noches)** → ✈️ Roma → Florencia → Pisa → **Volterra** → Milán.
+Ver [`docs/itinerario.md`](../docs/itinerario.md).
+
+Prioriza los **2 vuelos** (mayor costo y más volátil). Sugerencia de `--label`:
+
+| Prioridad | Fecha | Tramo | `--label` sugerido |
+| --- | --- | --- | --- |
+| 🔴 vuelo | 2 oct | Bérgamo (BGY) → París | `bergamo-paris-2oct` |
+| 🔴 vuelo | 5 oct | París → Roma (FCO) | `paris-roma-5oct` |
+| 🟠 tren | 8 oct | Roma → Florencia | `roma-florencia-8oct` |
+| 🟠 tren | 11 oct | Volterra → Milán (cerca MXP) | `volterra-milan-11oct` |
+| 🟡 regional | 28 sep | Milán → Como → Bérgamo | `milan-como-bergamo-28sep` |
+| 🟡 regional | 29 sep | Bérgamo → Verona → Venecia | `bergamo-verona-venecia-29sep` |
+| 🟡 regional | 1 oct | Venecia → Padua → Bérgamo | `venecia-padua-bergamo-1oct` |
+| 🟡 regional+bus | 9 oct | Florencia → Pisa → Volterra | `florencia-pisa-volterra-9oct` |
+
+> Para los vuelos, busca en Omio en modo "Flights" y compara aeropuerto de llegada
+> en París (Beauvais vs Orly/CDG) por el costo+tiempo del transfer. Reserva con
+> **maleta documentada**.
+
 ## Flujo de trabajo sugerido para ajustar el viaje
 
-1. Tú me das el recorrido ajustado (orden de ciudades / días que quieres mover).
-2. Por cada tramo dudoso, haces la búsqueda en tu Chrome y corres `omio_cdp.py`.
-3. Yo leo la captura, comparo opciones (Trenitalia vs Italo, horario temprano vs
-   barato, conexiones) y reacomodo los movimientos con datos reales.
-4. Actualizo los docs y abro PR.
+1. Empieza por los 2 vuelos (ver tabla arriba): son el mayor costo y definen los
+   horarios del 2 y 5 oct.
+2. Por cada tramo, haces la búsqueda en tu Chrome y corres `omio_cdp.py --label <tramo>`.
+3. Yo leo la captura, comparo opciones (aerolíneas / Trenitalia vs Italo, horario
+   temprano vs barato, conexiones) y afino los movimientos con datos reales.
+4. Actualizo `docs/transporte.md`, `docs/presupuesto.md` y, si cambia algún horario
+   clave, `docs/itinerario.md`; luego abro PR.
 
 ## Notas
 
