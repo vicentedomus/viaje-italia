@@ -24,6 +24,50 @@ import process from "node:process";
 
 const API = "https://api.firecrawl.dev/v2/scrape";
 
+// ---------- Normalización de moneda a MXN ----------
+// rome2rio detecta la región del scraper y a veces devuelve USD, EUR o hasta SEK; Omio
+// suele dar EUR/USD. Normalizamos TODO a MXN con tipos de cambio aproximados (mayo 2026)
+// para tener una sola moneda comparable. Ajustables aquí si cambian.
+const FX_TO_MXN = {
+  MXN: 1,
+  USD: 18,
+  EUR: 20,
+  GBP: 23,
+  SEK: 1.7,   // corona sueca (kr) — glitch frecuente de rome2rio
+  CHF: 21,
+};
+
+// Mapea símbolos / variantes textuales a un código ISO.
+function currencyCode(cur) {
+  if (!cur) return null;
+  const c = String(cur).trim().toUpperCase();
+  const map = {
+    "$": "USD", "US$": "USD", USD: "USD", DOLLAR: "USD", DOLLARS: "USD",
+    "€": "EUR", EUR: "EUR", EURO: "EUR", EUROS: "EUR",
+    "£": "GBP", GBP: "GBP",
+    KR: "SEK", SEK: "SEK", "KR.": "SEK",
+    CHF: "CHF", "₣": "CHF",
+    MXN: "MXN", "MX$": "MXN", MEX$: "MXN", PESO: "MXN", PESOS: "MXN",
+  };
+  return map[c] || (FX_TO_MXN[c] ? c : null);
+}
+
+const toMXN = (val, cur) => {
+  if (val == null) return null;
+  const code = currencyCode(cur);
+  const rate = code ? FX_TO_MXN[code] : null;
+  return rate ? Math.round(val * rate) : null;
+};
+
+// Añade price_mxn / price_low_mxn / price_high_mxn a una oferta, conservando el original.
+function addMXN(o) {
+  const out = { ...o };
+  if (o.price != null) out.price_mxn = toMXN(o.price, o.currency);
+  if (o.price_low != null) out.price_low_mxn = toMXN(o.price_low, o.currency);
+  if (o.price_high != null) out.price_high_mxn = toMXN(o.price_high, o.currency);
+  return out;
+}
+
 // Nombres de ciudad → nombre canónico en inglés (sirve para Omio y rome2rio).
 const ALIAS = {
   milan: "milan", "milán": "milan", milano: "milan",
@@ -121,7 +165,13 @@ async function fromRome2rio(key, from, to) {
         ],
         timeout: 120000,
       });
-      const options = data.json?.options || [];
+      const seen = new Set();
+      const options = (data.json?.options || []).map(addMXN).filter((o) => {
+        const k = [o.mode, o.duration, o.price_low, o.price_high].join("|");
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+      });
       if (options.length || attempt === 2) {
         return { source: "rome2rio", url, route: data.json?.route || null, options };
       }
@@ -179,7 +229,7 @@ async function omioPage(key, from, to, page) {
       });
       const offers = (data.json?.offers || [])
         .filter((o) => o && o.price != null)
-        .map((o) => ({ ...o, booking_url: url }));
+        .map((o) => addMXN({ ...o, booking_url: url }));
       if (offers.length || attempt === 2) {
         return { offers, shown_date: data.json?.shown_date || null };
       }
@@ -238,7 +288,7 @@ async function fromOmioUrl(key, url) {
     route: data.json?.route || null,
     search_date: data.json?.search_date || null,
     url,
-    offers: dedupe((data.json?.offers || []).filter((o) => o && o.price != null)),
+    offers: dedupe((data.json?.offers || []).filter((o) => o && o.price != null).map(addMXN)),
   };
 }
 
@@ -277,9 +327,10 @@ async function main() {
     route: `${args.from} → ${args.to}`,
     requested_date: args.date || null,
     note:
-      "rome2rio = panorama multimodal (precio en rango, frecuencia). Omio = horarios reales/" +
-      "tarifa fija regional (fecha cercana). Precio dinámico futuro (alta velocidad/vuelos) " +
-      "se confirma al abrir ventas. Tipo de cambio ref: €1≈20 MXN.",
+      "Precios normalizados a MXN (campos *_mxn) desde la moneda original de cada fuente. " +
+      "rome2rio = panorama multimodal (rango, frecuencia). Omio = horarios reales/tarifa fija " +
+      "regional (fecha cercana). Precio dinámico futuro (alta velocidad/vuelos) se confirma al " +
+      "abrir ventas. FX aprox: USD 18, EUR 20 MXN.",
     rome2rio: r2r ? { url: r2r.url, options: r2r.options, error: r2r.error } : null,
     omio: omio ? { shown_date: omio.shown_date, offers: omio.offers } : null,
   };

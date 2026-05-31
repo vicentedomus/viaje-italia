@@ -34,6 +34,11 @@ Devuelve un JSON con **dos fuentes que debes cruzar**:
   `frequency` (p.ej. "every 30 minutes"), `summary`. Es la base para decidir qué modo conviene.
 - `omio`: **horarios de salida reales** por modo + `price` (tarifa fija regional / fecha cercana).
 
+**Moneda:** todos los precios se normalizan a **MXN** en campos `*_mxn` (`price_mxn`,
+`price_low_mxn`, `price_high_mxn`), además del precio original (`price` + `currency`). Usa los
+campos MXN para comparar y para `docs/transporte.md`. Tipos de cambio en `FX_TO_MXN` dentro del
+script (ajustables): USD 18, EUR 20.
+
 Flags:
 - `--from` / `--to`: ciudad (español o inglés; el script mapea los nombres).
 - `--date YYYY-MM-DD` (opcional): se anota en la salida. Las fuentes dan frecuencia / fecha
