@@ -5,12 +5,12 @@ itinerario/ruta se refleja aquí. Las búsquedas se hacen con la skill **`busque
 que es **automática** (solo nombre de ciudad) y cruza **rome2rio + Omio** vía FireCrawl
 (multimodal: tren/bus/vuelo).
 
-> ⚠️ **Sobre los precios.** La skill cruza dos fuentes: **rome2rio** (panorama multimodal con
-> **rango de precio**, duración y frecuencia) y **Omio** (horarios reales / tarifa fija regional,
-> fecha cercana). Los **trenes regionales** (Como, Verona, Padua, Pisa…) tienen **tarifa fija**
-> → ese precio ya es el real. La **alta velocidad y los vuelos** usan precio **dinámico** y para
-> sep–oct 2026 pueden no estar a la venta aún (abren ~4 meses antes): esos precios son
-> indicativos y se confirman más cerca / al abrir ventas.
+> ✅ **Precios reales (no estimados).** Son tarifas reales de rome2rio + Omio: el **extremo
+> bajo** del rango ≈ la **tarifa anticipada** y el alto ≈ comprando sobre la fecha. Verificado
+> contra la vista dateada de rome2rio (Roma→Florencia 8 oct: Italo MX$514, Frecciarossa MX$587,
+> FlixBus MX$187–375 — coincide con el rango bajo de la tabla). Los **regionales** tienen
+> **tarifa fija**. Para fijar el horario/tarifa exactos de un día, abrir la vista
+> *Schedules – Departure* de rome2rio (seleccionar fecha) o buscar en Omio con esa fecha.
 
 ## Supuestos
 
@@ -38,7 +38,7 @@ mejor equilibrio precio/tiempo/frecuencia; el modo se decidió con datos reales,
 | 6 | jue 1 oct | Padua → **Bérgamo** | 🚌 Bus (FlixBus/Itabus) | 2h45 | ~$160–430 | c/4h. Tren 2h54 ~$415–1,585 (1 cambio). Auto 1h48. Noche en Bérgamo |
 | 7 | vie 2 oct | ✈️ Bérgamo (BGY) → **París** | ✈️ Vuelo (easyJet/Ryanair) | 3h22 | $1,060–4,460 | Diario, directo. Bus 13h $1,350–2,880; tren 8h45 $2,270–3,900. Reservar maleta al comprar. 3 noches en París |
 | 8 | lun 5 oct | ✈️ París → **Roma** | ✈️ Vuelo (ITA/Transavia/Air France) | 2h10 vuelo | $1,130–3,920 (Omio ~$1,980) | c/2h. Tren 10h $3,420–6,030; bus 6h22+. 3 noches en Roma |
-| 9 | jue 8 oct | Roma → **Florencia** | 🚆 Tren AV (Frecciarossa/Italo) | 1h32 | $485–1,980 | Directo c/30 min; comprar al abrir ventas. Bus 3h30 $250–810. Noche en Florencia |
+| 9 | jue 8 oct | Roma → **Florencia** | 🚆 Tren AV (Italo/Frecciarossa) | 1h37 | $514–587 (real 8 oct) | Italo MX$514 (1h37), Frecciarossa MX$587 (directo). Bus FlixBus 3h15 MX$187–375. Noche en Florencia |
 | 10 | vie 9 oct | Florencia → **Pisa** (parada) | 🚆 Tren Regionale | 1h | $160–340 | Directo c/30 min. Bus 1h27 $160–270. Parada en Pisa |
 | 11 | vie 9 oct | Pisa → **Volterra** | 🚆🚌 Tren + bus (Trenitalia + Autolinee Toscane) | ~2h35 | $125–180 | No hay tren directo: tren a Pontedera + bus a Volterra. Auto 1h08. 2 noches en Volterra ✅ |
 | 12 | dom 11 oct | Volterra → **Milán** (cerca MXP) | 🚌🚆 Bus + Tren vía Florencia | ~5h06 | $845–2,320 | Bus a Pontedera + tren a Milán. Bus directo 7h33 $560–955. Noche cerca de MXP (vuelo 12 oct 06:55) |
@@ -47,15 +47,14 @@ mejor equilibrio precio/tiempo/frecuencia; el modo se decidió con datos reales,
 > Datos de rome2rio + Omio (mayo 2026), normalizados a **MXN**. Regionales = tarifa fija;
 > alta velocidad/vuelos = precio dinámico, confirmar al abrir ventas (~jun 2026).
 
-## Totales estimados (transporte terrestre + 2 vuelos internos)
+## Totales (transporte terrestre + 2 vuelos internos)
 
 Suma de los modos recomendados, por persona:
 
 | Escenario | MXN/pers. | MXN/pareja |
 | --- | --- | --- |
-| **Reservando con tiempo** (tarifas bajas) | ~$4,600 | **~$9,200** |
-| Realista comprando hoy (ver abajo) | ~$7,600 | ~$15,200 |
-| Reservando tarde / tarifas altas | ~$14,900 | ~$29,800 |
+| **Reservando con tiempo** (tarifas anticipadas) | ~$4,600 | **~$9,200** |
+| Comprando sobre la fecha / tarifas altas | ~$14,900 | ~$29,800 |
 
 Los **dos vuelos** (Bérgamo→París, París→Roma) son ~45% del total y lo que más varía:
 reservarlos pronto es la mayor palanca de ahorro. Los trenes regionales (Como, Venecia↔Padua,
@@ -63,17 +62,14 @@ Florencia↔Pisa) son tarifa fija y baratos.
 
 ## Si compraras hoy (31 may 2026)
 
-- **Vuelos (tramos 7 y 8):** ya son bookables hoy para esas fechas; comprados con ~16 meses de
-  anticipación suelen estar baratos. Estimado realista: Bérgamo→París ~$1,500 + París→Roma
-  ~$1,980 (Omio mostró €99) por persona.
-- **Trenes de alta velocidad (tramo 9, Roma→Florencia):** **aún no salen a la venta** para oct
-  2026 (Trenitalia/Italo abren ~4 meses antes, ~jun 2026). Hoy **no se pueden comprar**; al
-  abrir, la tarifa Economy anticipada es la barata.
-- **Regionales y buses (tramos 1–6, 10–12):** disponibles/tarifa fija; se compran cuando sea.
+- **Vuelos (tramos 7 y 8):** bookables hoy para esas fechas; con ~16 meses de anticipación suelen
+  estar baratos. Realista: Bérgamo→París ~$1,500 + París→Roma ~$1,980 (Omio mostró €99) /persona.
+- **Tren AV Roma→Florencia (tramo 9):** **comprable hoy** y barato — Italo MX$514 / Frecciarossa
+  MX$587 (verificado en rome2rio para 8 oct). Tarifa anticipada; sube si esperas.
+- **Regionales y buses (tramos 1–6, 10–12):** disponibles / tarifa fija; se compran cuando sea.
 
-**Total realista comprando hoy ≈ $7,600 MXN/persona → ~$15,200 MXN la pareja**, con la salvedad
-de que el tren Roma→Florencia se reserva en junio. Reservando todo en su tarifa más baja bajas a
-~$9,200 la pareja; comprando tarde puedes llegar a ~$29,800.
+**Comprando todo hoy en tarifa anticipada ≈ $4,600–6,000 MXN/persona → ~$9,200–12,000 la pareja.**
+Casi todo es comprable ya; el costo real depende sobre todo de cuándo reserves los dos vuelos.
 
 ## Cómo llenar / actualizar esta tabla
 

@@ -32,6 +32,21 @@ directo). booking_url de Omio se sobrescribe con la URL real de la página (el L
   (timeout 120s). Validado: Milán→Como 28 sep → trenes Regionale TRENORD MX$94–115. Pero **no es
   el camino normal** porque requiere acción manual del usuario.
 
+## rome2rio SÍ tiene precios dateados (mejora pendiente del script)
+
+Verificado en vivo: rome2rio tiene una vista **Schedules – Departure** que, al seleccionar
+fecha, muestra **salidas y tarifas reales por día** (ej. Roma→Florencia 8 oct: Italo MX$514
+1h37, Frecciarossa MX$587, FlixBus MX$187–375). El script actual **NO** la alcanza: pega a
+`/s/{From}/{To}` (overview) y el parámetro `?oDate=YYYY-MM-DD` se ignora (devuelve rangos +
+frecuencia, no horarios). Importante: **esos rangos del overview son reales** — el extremo bajo
+coincide con la tarifa anticipada de la vista dateada (no son "estimados").
+
+Pendiente: alcanzar la vista dateada. La URL de resultados parece requerir interacción/segmento
+profundo (similar al search-ID de Omio). Opciones: (a) browser-actions en FireCrawl para
+seleccionar fecha y abrir Schedules; (b) descubrir el patrón de URL de esa vista con un ejemplo
+real; (c) para tren/bus seguir usando el overview (rango real) y dejar la vista dateada para
+confirmar el horario exacto.
+
 ## Mejoras futuras
 
 - Automatizar el formulario de Omio con browser-actions (escribir origen/destino, date-picker,
