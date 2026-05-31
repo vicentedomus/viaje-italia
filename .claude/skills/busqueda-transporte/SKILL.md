@@ -49,6 +49,8 @@ Flags:
 - `--from` / `--to`: ciudad (español o inglés; el script mapea los nombres).
 - `--date YYYY-MM-DD` (opcional): activa `rome2rio_schedules` (horarios + tarifa reales de ese
   día, tren y bus). Sin `--date` solo se trae el panorama (rango) + Omio.
+- `--air` (opcional, con `--date`): añade vuelos a la vista dateada. Úsalo solo en tramos donde
+  el avión tiene sentido (largos / internacionales), p.ej. Bérgamo→París y París→Roma.
 - `--only rome2rio|omio`: usar una sola fuente (p.ej. `--only rome2rio` si Omio falla).
 - `--url <url de resultados de Omio>` (opcional, avanzado): si Vicente ya hizo una búsqueda
   dateada en Omio y pega la URL, extrae ese resultado exacto. **No es el camino normal.**

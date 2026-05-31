@@ -106,6 +106,7 @@ function parseArgs(argv) {
     else if (t === "--date") a.date = argv[++i];
     else if (t === "--only") a.only = argv[++i];
     else if (t === "--url") a.url = argv[++i];
+    else if (t === "--air") a.air = true;
     else if (t === "--raw") a.raw = true;
   }
   return a;
@@ -253,12 +254,12 @@ async function r2rSchedule(key, from, to, mode, isoDate) {
   return { mode: mode.toLowerCase(), url, schedules: [] };
 }
 
-// Trae Schedules dateados de tren y bus en paralelo y los junta ordenados por precio MXN.
-async function fromRome2rioSchedules(key, from, to, isoDate) {
-  const parts = await Promise.all([
-    r2rSchedule(key, from, to, "Train", isoDate),
-    r2rSchedule(key, from, to, "Bus", isoDate),
-  ]);
+// Trae Schedules dateados en paralelo y los junta ordenados por precio MXN.
+// modes: lista de "Train"|"Bus"|"Fly" (default tren+bus; añade Fly con --air).
+async function fromRome2rioSchedules(key, from, to, isoDate, modes) {
+  const parts = await Promise.all(
+    modes.map((m) => r2rSchedule(key, from, to, m, isoDate)),
+  );
   const all = parts.flatMap((p) => p.schedules);
   all.sort((a, b) => (a.price_mxn ?? a.price ?? 1e9) - (b.price_mxn ?? b.price ?? 1e9));
   return {
@@ -408,7 +409,8 @@ async function main() {
   if (args.only !== "rome2rio") tasks.push(fromOmio(key, args.from, args.to));
   // Con --date: vista Schedules dateada de rome2rio (horarios + tarifa reales de ESE día).
   if (args.date && args.only !== "omio") {
-    tasks.push(fromRome2rioSchedules(key, args.from, args.to, args.date));
+    const modes = args.air ? ["Train", "Bus", "Fly"] : ["Train", "Bus"];
+    tasks.push(fromRome2rioSchedules(key, args.from, args.to, args.date, modes));
   }
   const settled = await Promise.all(tasks);
 
