@@ -16,7 +16,8 @@ que es **automática** (solo nombre de ciudad) y cruza **rome2rio + Omio** vía 
 
 - **2 viajeros.** Donde haya precio se indica **por persona** (× 2 para la pareja).
 - Tarifas de tren = **Economy/advance** (comprando con anticipación).
-- Tipo de cambio referencia: **€1 ≈ 20 MXN** (consistente con Volterra: €244 ≈ $4,903 MXN).
+- Tipo de cambio referencia: **€1 ≈ 20 MXN**, **USD1 ≈ 18 MXN** (consistente con Volterra:
+  €244 ≈ $4,903 MXN).
 - El modo (tren/bus/vuelo) **se decide con datos reales por tramo**, no se predefine.
 
 ## Tramos del itinerario (v1)
@@ -24,42 +25,57 @@ que es **automática** (solo nombre de ciudad) y cruza **rome2rio + Omio** vía 
 16 noches · 26 sep → 12 oct 2026 · 2 viajeros · Cancún (CUN) ⇄ Milán Malpensa (MXP).
 Recorrido: Milán → Bérgamo → Venecia → Bérgamo → **París** → Roma → Florencia → Volterra → Milán.
 
-Precio = por persona, rango bajo–alto (rome2rio cruzado con Omio). Recomendado = mejor
-equilibrio precio/tiempo/frecuencia; el modo se decidió con datos reales, no se predefinió.
+Precio = por persona en **MXN**, rango bajo–alto (rome2rio cruzado con Omio). Recomendado =
+mejor equilibrio precio/tiempo/frecuencia; el modo se decidió con datos reales, no se predefinió.
 
-| # | Fecha | Tramo | Recomendado | Duración | Precio/pers. | Alternativas y notas |
+| # | Fecha | Tramo | Recomendado | Duración | MXN/pers. | Alternativas y notas |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | lun 28 sep | Milán → **Como** | 🚆 Tren Regionale (TRENORD) | 40 min–1h | ~$5 (fija) | Directo c/20 min, Milano Centrale/P.Garibaldi → Como S.Giovanni. Bus FlixBus 50 min $4–7. AM |
-| 2 | lun 28 sep | Como → **Bérgamo** | 🚆 Tren Trenord | 2h08 | $8–11 | c/30 min (vía Milán). Bus ASF directo 1h50 $13–18. BlaBlaCar 1h15 $5. PM; noche en Bérgamo |
-| 3 | mar 29 sep | Bérgamo → **Verona** (parada) | 🚌 Bus FlixBus | 1h25 | $6–19 | Cada hora, directo. Tren Trenitalia 1h42 $11–81 (1 cambio). Parada en Verona |
-| 4 | mar 29 sep | Verona → **Venecia** | 🚆 Tren (Trenitalia/Regionale Veloce) | 1h10–1h12 | $10–30 | Directo c/20 min. Bus FlixBus 2h $11–19. Noche en Venecia |
-| 5 | jue 1 oct | Venecia → **Padua** (parada) | 🚆 Tren Regionale | 26 min | $5–7 (fija) | Directo c/10 min. Bus 40 min $2–8. Parada en Padua |
-| 6 | jue 1 oct | Padua → **Bérgamo** | 🚌 Bus (FlixBus/Itabus) | 2h45 | ~$9–24 | c/4h. Tren 2h54 ~$23–88 (1 cambio). Auto 1h48. Noche en Bérgamo |
-| 7 | vie 2 oct | ✈️ Bérgamo (BGY) → **París** | ✈️ Vuelo (easyJet/Ryanair) | 3h22 | $59–248 | Diario, directo. Bus 13h $75–160; tren 8h45 $126–217. Reservar maleta al comprar. 3 noches en París |
-| 8 | lun 5 oct | ✈️ París → **Roma** | ✈️ Vuelo (ITA/Transavia/Air France) | 2h10 vuelo | ~$63–218 (Omio €99) | c/2h. Tren 10h $190–335; bus 6h22+. 3 noches en Roma |
-| 9 | jue 8 oct | Roma → **Florencia** | 🚆 Tren AV (Frecciarossa/Italo) | 1h37 | $27–110 | Directo c/15 min; comprar al abrir ventas. Bus 3h15 $14–45. Noche en Florencia |
-| 10 | vie 9 oct | Florencia → **Pisa** (parada) | 🚆 Tren Regionale | 1h23–1h28 | ~$9–17 (fija) | Directo c/30 min. Bus FlixBus 1h15 $5–33. Parada en Pisa |
-| 11 | vie 9 oct | Pisa → **Volterra** | 🚆🚌 Tren + bus (Trenitalia + Autolinee Toscane) | 2h35 | $7–10 | No hay directo: tren a Pontedera + bus a Volterra. Auto 1h08. 2 noches en Volterra ✅ |
-| 12 | dom 11 oct | Volterra → **Milán** (cerca MXP) | 🚌🚆 Bus + Tren vía Florencia | 5h06 | $47–129 | Bus a Pontedera + tren a Milán. Bus directo 7h33 $31–53. Noche cerca de MXP (vuelo 12 oct 06:55) |
+| 1 | lun 28 sep | Milán → **Como** | 🚆 Tren Regionale (TRENORD) | 40 min–1h | ~$100 (fija) | Directo c/20 min, Milano Centrale/P.Garibaldi → Como S.Giovanni. Bus FlixBus 50 min $70–125. AM |
+| 2 | lun 28 sep | Como → **Bérgamo** | 🚆 Tren Trenord | 2h08 | $145–200 | c/30 min (vía Milán). Bus ASF directo 1h50 $235–325. BlaBlaCar 1h15 $90. PM; noche en Bérgamo |
+| 3 | mar 29 sep | Bérgamo → **Verona** (parada) | 🚌 Bus FlixBus | 1h25 | $110–340 | Cada hora, directo. Tren Trenitalia 1h42 $200–1,460 (1 cambio). Parada en Verona |
+| 4 | mar 29 sep | Verona → **Venecia** | 🚆 Tren (Trenitalia/Regionale Veloce) | 1h10–1h12 | $180–540 | Directo c/20 min. Bus FlixBus 2h $200–340. Noche en Venecia |
+| 5 | jue 1 oct | Venecia → **Padua** (parada) | 🚆 Tren Regionale | 26 min | $90–125 (fija) | Directo c/10 min. Bus 40 min $35–145. Parada en Padua |
+| 6 | jue 1 oct | Padua → **Bérgamo** | 🚌 Bus (FlixBus/Itabus) | 2h45 | ~$160–430 | c/4h. Tren 2h54 ~$415–1,585 (1 cambio). Auto 1h48. Noche en Bérgamo |
+| 7 | vie 2 oct | ✈️ Bérgamo (BGY) → **París** | ✈️ Vuelo (easyJet/Ryanair) | 3h22 | $1,060–4,460 | Diario, directo. Bus 13h $1,350–2,880; tren 8h45 $2,270–3,900. Reservar maleta al comprar. 3 noches en París |
+| 8 | lun 5 oct | ✈️ París → **Roma** | ✈️ Vuelo (ITA/Transavia/Air France) | 2h10 vuelo | $1,130–3,920 (Omio ~$1,980) | c/2h. Tren 10h $3,420–6,030; bus 6h22+. 3 noches en Roma |
+| 9 | jue 8 oct | Roma → **Florencia** | 🚆 Tren AV (Frecciarossa/Italo) | 1h32 | $485–1,980 | Directo c/30 min; comprar al abrir ventas. Bus 3h30 $250–810. Noche en Florencia |
+| 10 | vie 9 oct | Florencia → **Pisa** (parada) | 🚆 Tren Regionale | 1h | $160–340 | Directo c/30 min. Bus 1h27 $160–270. Parada en Pisa |
+| 11 | vie 9 oct | Pisa → **Volterra** | 🚆🚌 Tren + bus (Trenitalia + Autolinee Toscane) | ~2h35 | $125–180 | No hay tren directo: tren a Pontedera + bus a Volterra. Auto 1h08. 2 noches en Volterra ✅ |
+| 12 | dom 11 oct | Volterra → **Milán** (cerca MXP) | 🚌🚆 Bus + Tren vía Florencia | ~5h06 | $845–2,320 | Bus a Pontedera + tren a Milán. Bus directo 7h33 $560–955. Noche cerca de MXP (vuelo 12 oct 06:55) |
 
 > Vuelos CUN⇄MXP (26 sep / 12 oct) están en `docs/vuelos.md` (Condor, reservado ✅).
-> Datos de rome2rio + Omio (mayo 2026), precios en **USD** (€≈USD). Regionales = tarifa fija;
-> alta velocidad/vuelos = precio dinámico, confirmar al abrir ventas (~jun 2026). Ref €1≈20 MXN.
+> Datos de rome2rio + Omio (mayo 2026), normalizados a **MXN**. Regionales = tarifa fija;
+> alta velocidad/vuelos = precio dinámico, confirmar al abrir ventas (~jun 2026).
 
 ## Totales estimados (transporte terrestre + 2 vuelos internos)
 
-Suma de los recomendados (por persona), rango bajo–alto:
+Suma de los modos recomendados, por persona:
 
-| Escenario | USD/pers. | USD/pareja | MXN/pareja (≈) |
-| --- | --- | --- | --- |
-| **Reservando con tiempo** (tarifas bajas) | ~$200 | **~$400** | **≈ $7,200** |
-| Reservando tarde / tarifas altas | ~$640 | ~$1,280 | ≈ $23,000 |
+| Escenario | MXN/pers. | MXN/pareja |
+| --- | --- | --- |
+| **Reservando con tiempo** (tarifas bajas) | ~$4,600 | **~$9,200** |
+| Realista comprando hoy (ver abajo) | ~$7,600 | ~$15,200 |
+| Reservando tarde / tarifas altas | ~$14,900 | ~$29,800 |
 
 Los **dos vuelos** (Bérgamo→París, París→Roma) son ~45% del total y lo que más varía:
 reservarlos pronto es la mayor palanca de ahorro. Los trenes regionales (Como, Venecia↔Padua,
-Florencia↔Pisa) son tarifa fija y baratos. (MXN con ~18 MXN/USD.)
+Florencia↔Pisa) son tarifa fija y baratos.
 
-## Cómo llenar esta tabla
+## Si compraras hoy (31 may 2026)
+
+- **Vuelos (tramos 7 y 8):** ya son bookables hoy para esas fechas; comprados con ~16 meses de
+  anticipación suelen estar baratos. Estimado realista: Bérgamo→París ~$1,500 + París→Roma
+  ~$1,980 (Omio mostró €99) por persona.
+- **Trenes de alta velocidad (tramo 9, Roma→Florencia):** **aún no salen a la venta** para oct
+  2026 (Trenitalia/Italo abren ~4 meses antes, ~jun 2026). Hoy **no se pueden comprar**; al
+  abrir, la tarifa Economy anticipada es la barata.
+- **Regionales y buses (tramos 1–6, 10–12):** disponibles/tarifa fija; se compran cuando sea.
+
+**Total realista comprando hoy ≈ $7,600 MXN/persona → ~$15,200 MXN la pareja**, con la salvedad
+de que el tren Roma→Florencia se reserva en junio. Reservando todo en su tarifa más baja bajas a
+~$9,200 la pareja; comprando tarde puedes llegar a ~$29,800.
+
+## Cómo llenar / actualizar esta tabla
 
 Con la skill, automático, un tramo a la vez (no predefinas modo). Cruza rome2rio (panorama
 multimodal: rango de precio, duración, frecuencia) + Omio (horarios reales / tarifa fija):
@@ -69,7 +85,8 @@ node .claude/skills/busqueda-transporte/scripts/buscar_transporte.mjs --from mil
 node .claude/skills/busqueda-transporte/scripts/buscar_transporte.mjs --from como  --to bergamo
 ```
 
-Al confirmar una opción con Vicente, se actualiza la fila (modo/duración/precio) aquí.
+Los precios salen en MXN (campos `*_mxn`). Al confirmar una opción con Vicente, se actualiza la
+fila (modo/duración/precio) aquí.
 
 ## Notas y palancas de ahorro
 
@@ -92,5 +109,5 @@ Al confirmar una opción con Vicente, se actualiza la fila (modo/duración/preci
 - [seat61 — trenes en Italia 2026](https://www.seat61.com/train-travel-in-italy.htm)
 - [Rome2Rio](https://www.rome2rio.com/) · [Omio](https://www.omio.com/) (referencia)
 
-> Snapshot: 31 may 2026. Ruta v1 (con París). Precios de rome2rio + Omio; reconfirmar al
+> Snapshot: 31 may 2026. Ruta v1 (con París). Precios de rome2rio + Omio en MXN; reconfirmar al
 > abrir ventas (~jun 2026) los vuelos y trenes de alta velocidad.
