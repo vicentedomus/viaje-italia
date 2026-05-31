@@ -29,10 +29,16 @@ node .claude/skills/busqueda-transporte/scripts/buscar_transporte.mjs --from mil
 node .claude/skills/busqueda-transporte/scripts/buscar_transporte.mjs --from como  --to bergamo
 ```
 
-Devuelve un JSON con **dos fuentes que debes cruzar**:
+Devuelve un JSON con **estas fuentes que debes cruzar**:
 - `rome2rio`: panorama multimodal — `mode`, `duration`, `price_low`/`price_high`, `operators`,
-  `frequency` (p.ej. "every 30 minutes"), `summary`. Es la base para decidir qué modo conviene.
+  `frequency` (p.ej. "every 30 minutes"), `summary`. Base para decidir qué modo conviene.
+- `rome2rio_schedules`: **solo si pasas `--date`** — la vista *Schedules – Departure* dateada de
+  rome2rio (tren + bus), con **horarios y tarifa reales del día exacto** (`departure_time`,
+  `arrival_time`, `duration`, `price`/`price_mxn`). Es lo más preciso para un día concreto.
 - `omio`: **horarios de salida reales** por modo + `price` (tarifa fija regional / fecha cercana).
+
+**Para precio/horario exactos de una fecha, pasa `--date YYYY-MM-DD`** y usa `rome2rio_schedules`.
+Verificado contra la UI (Roma→Florencia 8 oct: Italo 5:40→7:17 ~MX$522, coincide con la app).
 
 **Moneda:** todos los precios se normalizan a **MXN** en campos `*_mxn` (`price_mxn`,
 `price_low_mxn`, `price_high_mxn`), además del precio original (`price` + `currency`). Usa los
@@ -41,8 +47,8 @@ script (ajustables): USD 18, EUR 20.
 
 Flags:
 - `--from` / `--to`: ciudad (español o inglés; el script mapea los nombres).
-- `--date YYYY-MM-DD` (opcional): se anota en la salida. Las fuentes dan frecuencia / fecha
-  cercana, no precio dinámico futuro (ver Limitaciones).
+- `--date YYYY-MM-DD` (opcional): activa `rome2rio_schedules` (horarios + tarifa reales de ese
+  día, tren y bus). Sin `--date` solo se trae el panorama (rango) + Omio.
 - `--only rome2rio|omio`: usar una sola fuente (p.ej. `--only rome2rio` si Omio falla).
 - `--url <url de resultados de Omio>` (opcional, avanzado): si Vicente ya hizo una búsqueda
   dateada en Omio y pega la URL, extrae ese resultado exacto. **No es el camino normal.**

@@ -33,8 +33,12 @@ const FX_TO_MXN = {
   USD: 18,
   EUR: 20,
   GBP: 23,
-  SEK: 1.7,   // corona sueca (kr) — glitch frecuente de rome2rio
   CHF: 21,
+  // Coronas nórdicas: rome2rio a veces detecta mal la región del scraper y devuelve estas
+  // monedas (glitch). Las convertimos igual para no perder el dato.
+  SEK: 1.7,   // corona sueca (kr)
+  NOK: 1.7,   // corona noruega (kr)
+  DKK: 2.7,   // corona danesa
 };
 
 // Mapea símbolos / variantes textuales a un código ISO.
@@ -182,6 +186,90 @@ async function fromRome2rio(key, from, to) {
   return { source: "rome2rio", url, options: [] };
 }
 
+// ---------- rome2rio Schedules dateados (horarios + tarifa por día) ----------
+// La vista map/{From}/{To}?route=<Mode>&departureDate=YYYY-MM-DD muestra las salidas reales de
+// esa fecha. Verificado contra la UI (Roma→Florencia 8 oct: Italo 5:40→7:17 1h37 ~$29).
+const R2R_SCHED_SCHEMA = {
+  type: "object",
+  properties: {
+    schedules: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          operator: { type: "string" },
+          departure_time: { type: "string", description: "hora de salida" },
+          arrival_time: { type: "string", description: "hora de llegada" },
+          duration: { type: "string" },
+          changes: { type: "number" },
+          price: { type: "number", description: "precio numérico" },
+          currency: { type: "string" },
+        },
+        required: ["departure_time"],
+      },
+    },
+    route: { type: "string" },
+    date: { type: "string", description: "fecha mostrada en la página" },
+  },
+  required: ["schedules"],
+};
+
+// mode: "Train" | "Bus" (los que tienen Schedules con horario en rome2rio).
+async function r2rSchedule(key, from, to, mode, isoDate) {
+  const url =
+    `https://www.rome2rio.com/map/${r2rName(from)}/${r2rName(to)}` +
+    `?route=${mode}&departureDate=${isoDate}`;
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const data = await scrape(key, {
+        url,
+        formats: [{
+          type: "json",
+          prompt:
+            "Esta es la vista 'Schedules – Departure' de rome2rio para una fecha específica. " +
+            "Extrae route, date, y CADA salida con operator, departure_time y arrival_time, " +
+            "duration, changes, price (número) y currency.",
+          schema: R2R_SCHED_SCHEMA,
+        }],
+        actions: [
+          { type: "wait", milliseconds: 8000 },
+          { type: "scroll", direction: "down" },
+          { type: "wait", milliseconds: 4000 },
+          { type: "scroll", direction: "down" },
+          { type: "wait", milliseconds: 4000 },
+        ],
+        timeout: 120000,
+      });
+      const schedules = (data.json?.schedules || [])
+        .filter((s) => s && s.departure_time)
+        .map((s) => addMXN({ ...s, mode: mode.toLowerCase() }));
+      if (schedules.length || attempt === 2) {
+        return { mode: mode.toLowerCase(), url, date: data.json?.date || null, schedules };
+      }
+    } catch (e) {
+      if (attempt === 2) return { mode: mode.toLowerCase(), url, schedules: [], error: e.message };
+    }
+  }
+  return { mode: mode.toLowerCase(), url, schedules: [] };
+}
+
+// Trae Schedules dateados de tren y bus en paralelo y los junta ordenados por precio MXN.
+async function fromRome2rioSchedules(key, from, to, isoDate) {
+  const parts = await Promise.all([
+    r2rSchedule(key, from, to, "Train", isoDate),
+    r2rSchedule(key, from, to, "Bus", isoDate),
+  ]);
+  const all = parts.flatMap((p) => p.schedules);
+  all.sort((a, b) => (a.price_mxn ?? a.price ?? 1e9) - (b.price_mxn ?? b.price ?? 1e9));
+  return {
+    source: "rome2rio-schedules",
+    date: parts.map((p) => p.date).find(Boolean) || null,
+    urls: parts.map((p) => p.url),
+    errors: parts.filter((p) => p.error).map((p) => `${p.mode}: ${p.error}`),
+    schedules: all,
+  };
+}
+
 // ---------- Omio (horarios reales por modo) ----------
 const OMIO_SCHEMA = {
   type: "object",
@@ -318,20 +406,28 @@ async function main() {
   const tasks = [];
   if (args.only !== "omio") tasks.push(fromRome2rio(key, args.from, args.to));
   if (args.only !== "rome2rio") tasks.push(fromOmio(key, args.from, args.to));
+  // Con --date: vista Schedules dateada de rome2rio (horarios + tarifa reales de ESE día).
+  if (args.date && args.only !== "omio") {
+    tasks.push(fromRome2rioSchedules(key, args.from, args.to, args.date));
+  }
   const settled = await Promise.all(tasks);
 
   const r2r = settled.find((s) => s.source === "rome2rio");
   const omio = settled.find((s) => s.source === "omio");
+  const sched = settled.find((s) => s.source === "rome2rio-schedules");
 
   const out = {
     route: `${args.from} → ${args.to}`,
     requested_date: args.date || null,
     note:
       "Precios normalizados a MXN (campos *_mxn) desde la moneda original de cada fuente. " +
-      "rome2rio = panorama multimodal (rango, frecuencia). Omio = horarios reales/tarifa fija " +
-      "regional (fecha cercana). Precio dinámico futuro (alta velocidad/vuelos) se confirma al " +
-      "abrir ventas. FX aprox: USD 18, EUR 20 MXN.",
+      "rome2rio = panorama multimodal (rango, frecuencia). rome2rio_schedules = horarios + " +
+      "tarifa REALES del día (--date). Omio = horarios reales/tarifa fija regional (fecha " +
+      "cercana). FX aprox: USD 18, EUR 20 MXN.",
     rome2rio: r2r ? { url: r2r.url, options: r2r.options, error: r2r.error } : null,
+    rome2rio_schedules: sched
+      ? { date: sched.date, urls: sched.urls, errors: sched.errors, schedules: sched.schedules }
+      : null,
     omio: omio ? { shown_date: omio.shown_date, offers: omio.offers } : null,
   };
   console.log(JSON.stringify(out, null, 2));
