@@ -1,60 +1,40 @@
-# Notas técnicas — scraping de Omio con FireCrawl
+# Notas técnicas — búsqueda de transporte con FireCrawl
 
 Hallazgos del spike (mayo 2026) que sustentan el diseño de la skill.
 
-## Qué funciona
+## Arquitectura: rome2rio (primaria) + Omio (secundaria)
 
-- **Patrón checavuelos sobre Omio**: `POST https://api.firecrawl.dev/v2/scrape` con
-  `formats:[{type:"json", prompt, schema}]` + `actions:[{type:"wait", milliseconds:7000}]`.
-  La extracción estructurada la hace el LLM de FireCrawl.
-- **Páginas SEO por modo** renderizan ofertas reales:
-  - `https://www.omio.com/trains/{from}/{to}` → trenes (operador, horarios, duración, precio).
-  - `https://www.omio.com/buses/{from}/{to}` → buses (FlixBus, etc.).
-  - `https://www.omio.com/flights/{from}/{to}` → vuelos.
-  - `https://www.omio.com/travel/{from}/{to}` → multimodal en una página, pero **renderiza
-    de forma intermitente** (a veces 0 ofertas). Por eso el script usa las páginas por modo
-    en paralelo y fusiona; es más confiable.
-- Ejemplos reales obtenidos: Milán→Como TRENORD ~€5.5–6 (~40–60 min) + FlixBus ~€6;
-  Roma→París tren Trenitalia/TGV (~14h30, 2 cambios, ~€150) y vuelo (~€50).
+La skill es **automática** (solo nombre de ciudad). Decisión validada en vivo:
 
-## Fecha exacta: modo paste-URL (lo que SÍ funciona)
+- **rome2rio** (`https://www.rome2rio.com/s/{From}/{To}`) es **direccionable por nombre de
+  ciudad** (sin IDs internos), multimodal (train/bus/fly/drive/ferry) y da duración, **rango de
+  precio**, operadores y **frecuencia**. Hecho para planear. Es la base.
+  - Validado Milán→Como: Trenord 1h04 MX$95–130 c/30min; bus Autoguidovie 1h35 MX$80–130 c/4h;
+    coche 44min. Automático, sin pasos manuales.
+- **Omio** páginas SEO por modo (`/trains|/buses|/flights/{from}/{to}`) aportan **horarios de
+  salida reales** + tarifa fija regional. Complementa a rome2rio (que da frecuencia, no horarios).
+  - Usa las páginas por modo en paralelo y fusiona; la página `/travel` multimodal renderiza
+    intermitente. Espera ~7s por la carga diferida.
 
-La búsqueda dateada de Omio vive en `https://www.omio.com/app/search-frontend/results/<ID>/train`,
-donde `<ID>` es un **search-ID de un solo uso** que Omio genera al enviar el formulario
-(no lleva ciudades ni fecha en el texto; están guardadas server-side). Probado en vivo:
+Se cruzan ambas para detectar discrepancias (rome2rio a veces lista rutas indirectas; Omio el
+directo). booking_url de Omio se sobrescribe con la URL real de la página (el LLM lo inventa).
 
-- FireCrawl **sí** abre esa URL y lee ruta + fecha correctas.
-- La lista de horarios **carga en diferido**: hay que usar `actions` con **espera larga
-  (~9s) + scroll + espera** para que rendericen las ofertas. Con eso se extraen las ofertas
-  **dateadas exactas** (ej. Milán→Como 28 sep: 8 trenes Regionale TRENORD, MX$115, 0h40–1h01).
+## Por qué NO se usa Omio como primaria automática con fecha
 
-Por eso la skill expone `--url "<url de resultados>"`: Vicente busca en Omio y pega la URL;
-el script extrae el resultado exacto. Es lo más fiable hoy.
+- **Fecha futura arbitraria**: las páginas SEO de Omio ignoran `?departureDate=` y muestran la
+  fecha más cercana. Sirven para horarios + tarifa fija regional, no para precio dateado futuro.
+- **Búsqueda interna dateada** (`/app/search-frontend/results/<ID>/...`): el `<ID>` es un
+  **search-ID de un solo uso** que Omio genera al enviar el formulario (no construible con
+  nombres de ciudad). La API de autocompletado que resolvería los IDs está tras **Cloudflare**
+  (403 "Just a moment…"), y llamarla desde el navegador de FireCrawl tampoco devolvió datos.
+- Existe el modo `--url` (paste-URL) como recurso avanzado/manual: si el usuario ya hizo la
+  búsqueda en Omio y pega la URL de resultados, FireCrawl la extrae con scroll + espera larga
+  (timeout 120s). Validado: Milán→Como 28 sep → trenes Regionale TRENORD MX$94–115. Pero **no es
+  el camino normal** porque requiere acción manual del usuario.
 
-## Qué NO se pudo automatizar (mejoras futuras)
+## Mejoras futuras
 
-- **Generar el search-ID automáticamente**: requeriría manejar el formulario con browser-actions
-  (escribir origen/destino, abrir date-picker, elegir fecha, clic en buscar) y luego extraer
-  de la URL de resultados resultante. Es viable pero **frágil** (selectores cambian) y lento.
-- **Deep-link construible con IDs de posición**: la API de autocompletado de Omio está tras
-  **Cloudflare** (403 "Just a moment…") por curl directo; llamarla desde el navegador de
-  FireCrawl (`executeJavascript`) tampoco devolvió datos utilizables en las pruebas.
-- **Modo B (páginas SEO)**: el parámetro `?departureDate=` se ignora; muestran la fecha más
-  cercana. Sirve para horarios + tarifa fija regional; para alta velocidad/vuelos es indicativo.
-- **Realidad de negocio**: para sep–oct 2026 muchas tarifas dinámicas (alta velocidad/vuelos)
-  aún no abren venta (~4 meses antes), así que el precio exacto de esas se confirma más cerca.
-
-## booking_url
-
-El LLM a veces inventa `booking_url` (p.ej. `example.com/...`). El script lo **sobrescribe**
-con la URL real de la página de Omio de la que salió la oferta (es el punto de reserva válido).
-
-## Mejoras futuras (cuando abran ventas, ~jun 2026)
-
-1. **Browser-actions de FireCrawl** para conducir el buscador de Omio: escribir origen,
-   escribir destino, abrir el date-picker y seleccionar la fecha, clic en buscar, esperar y
-   extraer. Da precio/horario exactos por fecha, pero es más lento (~30–60s/tramo) y frágil
-   ante cambios de UI.
-2. **Scraping directo por operador** para precio exacto: Trenitalia/Italo/Trenord (trenes),
-   FlixBus (bus), Ryanair/easyJet (vuelos). Requiere mantener el mapeo tramo→operadores.
-3. **Re-ejecutar** simplemente cuando la fecha objetivo entre en la ventana visible de Omio.
+- Automatizar el formulario de Omio con browser-actions (escribir origen/destino, date-picker,
+  buscar) para precio dateado exacto sin paste-URL. Viable pero frágil (selectores) y lento.
+- Cuando abran ventas (~jun 2026) para sep–oct 2026, los precios dinámicos (alta velocidad/
+  vuelos) ya serán reales en ambas fuentes; reejecutar para fijarlos en docs/transporte.md.

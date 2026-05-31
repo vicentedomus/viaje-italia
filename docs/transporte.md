@@ -1,15 +1,16 @@
 # Transporte entre ciudades — ruta v1 (Italia + París)
 
 Fuente canónica de la **ruta vigente** y de las búsquedas de transporte. Todo cambio de
-itinerario/ruta se refleja aquí. Las búsquedas se hacen con la skill
-**`busqueda-transporte`** (Omio vía FireCrawl, multimodal: tren/bus/vuelo).
+itinerario/ruta se refleja aquí. Las búsquedas se hacen con la skill **`busqueda-transporte`**,
+que es **automática** (solo nombre de ciudad) y cruza **rome2rio + Omio** vía FireCrawl
+(multimodal: tren/bus/vuelo).
 
-> ⚠️ **Sobre los precios.** La skill tiene dos modos: **paste-URL** (Vicente busca el tramo
-> en Omio con su fecha y pega la URL → precio/horario **exactos**) y **auto** (panorama por
-> ciudades, fecha cercana). Los **trenes regionales** (Como, Verona, Padua, Pisa…) tienen
-> **tarifa fija** → ese precio ya es el real. La **alta velocidad y los vuelos** usan precio
-> **dinámico** y para sep–oct 2026 pueden no estar a la venta aún (abren ~4 meses antes):
-> esas celdas quedan **"Por buscar"** hasta confirmarlas más cerca / al abrir ventas.
+> ⚠️ **Sobre los precios.** La skill cruza dos fuentes: **rome2rio** (panorama multimodal con
+> **rango de precio**, duración y frecuencia) y **Omio** (horarios reales / tarifa fija regional,
+> fecha cercana). Los **trenes regionales** (Como, Verona, Padua, Pisa…) tienen **tarifa fija**
+> → ese precio ya es el real. La **alta velocidad y los vuelos** usan precio **dinámico** y para
+> sep–oct 2026 pueden no estar a la venta aún (abren ~4 meses antes): esas celdas quedan
+> **"Por buscar"** hasta confirmarlas más cerca / al abrir ventas.
 
 ## Supuestos
 
@@ -25,7 +26,7 @@ Recorrido: Milán → Bérgamo → Venecia → Bérgamo → **París** → Roma 
 
 | # | Fecha | Tramo | Modo | Duración | €/persona | Notas |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | lun 28 sep | Milán → **Como** | Tren Regionale (TRENORD) | 40 min–1h01 | €5.7 (MX$115, fija) | Directo; varios/hora desde Milano Centrale / P. Garibaldi → Como S. Giovanni (ej. 05:43→06:23). Salida por la mañana |
+| 1 | lun 28 sep | Milán → **Como** | Tren Regionale (TRENORD) | 40 min–1h04 | €4.7–5.7 (MX$95–115, fija) | Directo c/30 min; Milano Centrale/P. Garibaldi → Como S. Giovanni (ej. 05:43→06:23). Alt: bus Autoguidovie 1h35 ~MX$80–130. Salida por la mañana |
 | 2 | lun 28 sep | Como → **Bérgamo** | Por buscar | Por buscar | Por buscar | Por la tarde; noche en Bérgamo |
 | 3 | mar 29 sep | Bérgamo → **Verona** (parada) | Por buscar | Por buscar | Por buscar | Parada en Verona |
 | 4 | mar 29 sep | Verona → **Venecia** | Por buscar | Por buscar | Por buscar | Noche en Venecia |
