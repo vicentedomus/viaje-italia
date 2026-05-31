@@ -59,6 +59,7 @@ function parseArgs(argv) {
     else if (t === "--to") a.to = argv[++i];
     else if (t === "--date") a.date = argv[++i];
     else if (t === "--mode") a.mode = argv[++i];
+    else if (t === "--url") a.url = argv[++i];
     else if (t === "--raw") a.raw = true;
   }
   return a;
@@ -79,13 +80,16 @@ const SCHEMA = {
           duration: { type: "string", description: "duración total, ej '1h05'" },
           changes: { type: "number", description: "número de cambios/escalas" },
           price: { type: "number", description: "precio numérico por persona" },
-          currency: { type: "string", description: "moneda, ej EUR" },
+          currency: { type: "string", description: "moneda, ej EUR o MXN" },
+          from_station: { type: "string", description: "estación/terminal de salida" },
+          to_station: { type: "string", description: "estación/terminal de llegada" },
           booking_url: { type: "string" },
         },
         required: ["mode", "price"],
       },
     },
-    shown_date: { type: "string", description: "fecha para la que la página muestra resultados" },
+    route: { type: "string", description: "ruta mostrada, ej 'Milan to Como'" },
+    search_date: { type: "string", description: "fecha para la que la página muestra resultados" },
   },
   required: ["offers"],
 };
@@ -147,6 +151,48 @@ function dedupe(offers) {
   return [...seen.values()].sort((a, b) => (a.price ?? 1e9) - (b.price ?? 1e9));
 }
 
+// Modo "paste-URL": scrapea una URL de resultados de Omio (con su search-ID) que el
+// usuario generó buscando en Omio. Da ofertas DATEADAS exactas. Usa scroll + espera larga
+// porque la lista de horarios carga en diferido.
+async function scrapeResultsUrl(key, url) {
+  const body = {
+    url,
+    formats: [{
+      type: "json",
+      prompt:
+        "Extrae route, search_date y TODAS las opciones mostradas (tren/bus/vuelo): mode, " +
+        "operator, departure_time y arrival_time en 24h, duration, changes, price (número), " +
+        "currency, from_station, to_station y booking_url.",
+      schema: SCHEMA,
+    }],
+    actions: [
+      { type: "wait", milliseconds: 9000 },
+      { type: "scroll", direction: "down" },
+      { type: "wait", milliseconds: 3500 },
+      { type: "scroll", direction: "down" },
+      { type: "wait", milliseconds: 3500 },
+    ],
+    timeout: 90000,
+  };
+  const res = await fetch(API, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  const j = await res.json();
+  if (!j || j.success === false) throw new Error(j?.error || `HTTP ${res.status}`);
+  const data = j.data || {};
+  const offers = dedupe((data.json?.offers || []).filter((o) => o && o.price != null));
+  return {
+    route: data.json?.route || null,
+    search_date: data.json?.search_date || null,
+    url,
+    note: "Resultado DATEADO exacto extraído de tu búsqueda de Omio.",
+    count: offers.length,
+    offers,
+  };
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const key = process.env.FIRECRAWL_API_KEY;
@@ -154,8 +200,21 @@ async function main() {
     console.error("ERROR: falta FIRECRAWL_API_KEY en el entorno (no se commitea).");
     process.exit(2);
   }
+
+  // Modo paste-URL: precio/horario exactos por fecha.
+  if (args.url) {
+    try {
+      const out = await scrapeResultsUrl(key, args.url);
+      console.log(JSON.stringify(out, null, 2));
+    } catch (e) {
+      console.error(`ERROR scrapeando la URL: ${e.message}`);
+      process.exit(1);
+    }
+    return;
+  }
+
   if (!args.from || !args.to) {
-    console.error("ERROR: se requieren --from y --to. Ej: --from milan --to como");
+    console.error("ERROR: usa --url <url de resultados de Omio>  O  --from <ciudad> --to <ciudad>.");
     process.exit(2);
   }
 

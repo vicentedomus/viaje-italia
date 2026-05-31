@@ -22,8 +22,28 @@ commitea). Si falta, el script aborta con un mensaje claro.
 
 ## Cómo usarla
 
-Por cada tramo, ejecuta el script (una llamada por tramo). Hace 3 scrapes en paralelo
-(trenes/buses/vuelos) y fusiona:
+Hay **dos modos**. Prefiere el de **paste-URL** cuando Vicente quiera precio/horario
+**exactos de una fecha**; usa el **auto** para un panorama rápido.
+
+### Modo A — paste-URL (fecha exacta, recomendado)
+
+Vicente busca el tramo en Omio (elige origen/destino/fecha) y pega la URL de resultados
+(se ve como `https://www.omio.com/app/search-frontend/results/<ID>/train?locale=en`). El
+script la scrapea con scroll + espera y devuelve las **ofertas dateadas reales**:
+
+```bash
+node .claude/skills/busqueda-transporte/scripts/omio_search.mjs --url "<URL de resultados de Omio>"
+```
+
+La pestaña final (`/train`, `/bus`, `/flight`) sólo cambia cuál se ve primero; el extractor
+toma todos los modos disponibles en esa búsqueda. Si quieres asegurar los tres modos, pide
+a Vicente la URL de cada pestaña y corre el script una vez por URL.
+
+### Modo B — auto por ciudades (panorama, fecha cercana)
+
+Sin URL: el script arma las páginas SEO de Omio y hace 3 scrapes en paralelo
+(trenes/buses/vuelos) y los fusiona. Útil para ver operadores/duraciones y **tarifas fijas
+regionales** (que no dependen de la fecha):
 
 ```bash
 node .claude/skills/busqueda-transporte/scripts/omio_search.mjs --from milan --to como
@@ -31,9 +51,10 @@ node .claude/skills/busqueda-transporte/scripts/omio_search.mjs --from como  --t
 ```
 
 Flags:
-- `--from` / `--to`: ciudad (acepta español o inglés; el script mapea a los slugs de Omio).
-- `--date YYYY-MM-DD` (opcional): fecha deseada (ver Limitación).
-- `--mode all|trains|buses|flights|travel` (default `all`).
+- `--url <url>`: modo A (URL de resultados de Omio).
+- `--from` / `--to`: modo B (ciudad; acepta español o inglés → slugs de Omio).
+- `--date YYYY-MM-DD` (opcional, modo B): fecha deseada (ver Limitación del modo B).
+- `--mode all|trains|buses|flights|travel` (default `all`, modo B).
 - `--raw`: JSON crudo de FireCrawl (debug; sólo con un `--mode` único).
 
 Para un **día con varios tramos** (p.ej. Milán→Como→Bérgamo), corre el script por cada
@@ -57,10 +78,14 @@ El script devuelve `offers` ya ordenadas por precio. Con eso:
 actualiza la fila del tramo ahí (modo/duración/precio) respetando el formato de tabla.
 Todo cambio de ruta/itinerario también se refleja en ese archivo.
 
-## Limitación conocida (importante)
+## Limitaciones
 
-Las páginas de Omio muestran los próximos servicios disponibles (**fecha cercana**), no
-una fecha futura arbitraria. Además, para **sep–oct 2026 las tarifas aún no salen a la
-venta** (Trenitalia/Italo abren ~4 meses antes). Por eso hoy el resultado es **horario +
-tarifa indicativa**, suficiente para planear y proponer; el precio exacto se confirma
-cuando abran ventas. Ver `references/omio-notes.md` para detalles y mejoras futuras.
+- **Modo B (auto):** las páginas SEO muestran los próximos servicios (**fecha cercana**), no
+  una fecha futura arbitraria → horario + **tarifa indicativa**. Para tramos en **tren
+  regional** (Como, Verona, Padua, Pisa…) la tarifa es **fija**, así que ese precio ya es el
+  real. Para alta velocidad/vuelos es indicativo.
+- **Modo A (paste-URL):** da el precio/horario **exacto de la fecha** buscada. Nota: para
+  sep–oct 2026, las tarifas de alta velocidad/vuelos pueden no estar a la venta todavía
+  (abren ~4 meses antes); en ese caso Omio muestra lo disponible más cercano.
+
+Detalles técnicos y mejoras futuras (automatizar el formulario): `references/omio-notes.md`.

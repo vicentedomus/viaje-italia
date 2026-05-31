@@ -4,12 +4,12 @@ Fuente canónica de la **ruta vigente** y de las búsquedas de transporte. Todo 
 itinerario/ruta se refleja aquí. Las búsquedas se hacen con la skill
 **`busqueda-transporte`** (Omio vía FireCrawl, multimodal: tren/bus/vuelo).
 
-> ⚠️ **Precios aún no bookables.** En mayo 2026 no abren ventas para sep–oct 2026
-> (Trenitalia/Italo abren ~4 meses antes; vuelos low-cost varían). Las páginas de Omio
-> muestran horarios de la fecha más cercana, no la fecha futura exacta. Por eso las celdas
-> marcadas **"Por buscar"** se llenan con la skill cerca de la fecha / al abrir ventas; los
-> trenes de alta velocidad y los vuelos usan **precio dinámico**, así que comprar con
-> anticipación = tarifa más baja.
+> ⚠️ **Sobre los precios.** La skill tiene dos modos: **paste-URL** (Vicente busca el tramo
+> en Omio con su fecha y pega la URL → precio/horario **exactos**) y **auto** (panorama por
+> ciudades, fecha cercana). Los **trenes regionales** (Como, Verona, Padua, Pisa…) tienen
+> **tarifa fija** → ese precio ya es el real. La **alta velocidad y los vuelos** usan precio
+> **dinámico** y para sep–oct 2026 pueden no estar a la venta aún (abren ~4 meses antes):
+> esas celdas quedan **"Por buscar"** hasta confirmarlas más cerca / al abrir ventas.
 
 ## Supuestos
 
@@ -25,7 +25,7 @@ Recorrido: Milán → Bérgamo → Venecia → Bérgamo → **París** → Roma 
 
 | # | Fecha | Tramo | Modo | Duración | €/persona | Notas |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | lun 28 sep | Milán → **Como** | Tren (Trenord) | ~40–60 min | ~€6 (indic.) | Salida por la mañana |
+| 1 | lun 28 sep | Milán → **Como** | Tren Regionale (TRENORD) | 40 min–1h01 | €5.7 (MX$115, fija) | Directo; varios/hora desde Milano Centrale / P. Garibaldi → Como S. Giovanni (ej. 05:43→06:23). Salida por la mañana |
 | 2 | lun 28 sep | Como → **Bérgamo** | Por buscar | Por buscar | Por buscar | Por la tarde; noche en Bérgamo |
 | 3 | mar 29 sep | Bérgamo → **Verona** (parada) | Por buscar | Por buscar | Por buscar | Parada en Verona |
 | 4 | mar 29 sep | Verona → **Venecia** | Por buscar | Por buscar | Por buscar | Noche en Venecia |
@@ -42,11 +42,15 @@ Recorrido: Milán → Bérgamo → Venecia → Bérgamo → **París** → Roma 
 
 ## Cómo llenar esta tabla
 
-Con la skill, un tramo a la vez (no predefinas modo):
+Con la skill, un tramo a la vez (no predefinas modo). **Fecha exacta** = pega la URL de tu
+búsqueda de Omio; **panorama** = por ciudades:
 
 ```bash
+# Exacto (recomendado): busca en Omio y pega la URL de resultados
+node .claude/skills/busqueda-transporte/scripts/omio_search.mjs --url "https://www.omio.com/app/search-frontend/results/<ID>/train?locale=en"
+
+# Panorama por ciudades (fecha cercana / tarifa fija regional)
 node .claude/skills/busqueda-transporte/scripts/omio_search.mjs --from milan --to como
-node .claude/skills/busqueda-transporte/scripts/omio_search.mjs --from bergamo --to paris --mode flights
 ```
 
 Al confirmar una opción con Vicente, se actualiza la fila (modo/duración/€) aquí.

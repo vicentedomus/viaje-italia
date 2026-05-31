@@ -17,17 +17,32 @@ Hallazgos del spike (mayo 2026) que sustentan el diseño de la skill.
 - Ejemplos reales obtenidos: Milán→Como TRENORD ~€5.5–6 (~40–60 min) + FlixBus ~€6;
   Roma→París tren Trenitalia/TGV (~14h30, 2 cambios, ~€150) y vuelo (~€50).
 
-## Qué NO funciona (y workarounds)
+## Fecha exacta: modo paste-URL (lo que SÍ funciona)
 
-- **Fecha futura arbitraria**: las páginas SEO muestran la fecha más cercana, no una fecha
-  específica de sep–oct 2026. El parámetro `?departureDate=` se ignora en esas páginas.
-- **Búsqueda interna con fecha** (`/search-frontend/results/...`): requiere IDs internos de
-  posición y está protegida por **Cloudflare** (la API de autocompletado devuelve 403
-  "Just a moment…"). Llamarla directo no es viable.
-- **Llamar la API de Omio desde el navegador de FireCrawl** (`executeJavascript`): también
-  topa con el reto de Cloudflare.
-- **Realidad de negocio**: para sep–oct 2026 las tarifas aún no abren venta (Trenitalia/Italo
-  abren ~4 meses antes), así que hoy no existe un precio dateado exacto que traer.
+La búsqueda dateada de Omio vive en `https://www.omio.com/app/search-frontend/results/<ID>/train`,
+donde `<ID>` es un **search-ID de un solo uso** que Omio genera al enviar el formulario
+(no lleva ciudades ni fecha en el texto; están guardadas server-side). Probado en vivo:
+
+- FireCrawl **sí** abre esa URL y lee ruta + fecha correctas.
+- La lista de horarios **carga en diferido**: hay que usar `actions` con **espera larga
+  (~9s) + scroll + espera** para que rendericen las ofertas. Con eso se extraen las ofertas
+  **dateadas exactas** (ej. Milán→Como 28 sep: 8 trenes Regionale TRENORD, MX$115, 0h40–1h01).
+
+Por eso la skill expone `--url "<url de resultados>"`: Vicente busca en Omio y pega la URL;
+el script extrae el resultado exacto. Es lo más fiable hoy.
+
+## Qué NO se pudo automatizar (mejoras futuras)
+
+- **Generar el search-ID automáticamente**: requeriría manejar el formulario con browser-actions
+  (escribir origen/destino, abrir date-picker, elegir fecha, clic en buscar) y luego extraer
+  de la URL de resultados resultante. Es viable pero **frágil** (selectores cambian) y lento.
+- **Deep-link construible con IDs de posición**: la API de autocompletado de Omio está tras
+  **Cloudflare** (403 "Just a moment…") por curl directo; llamarla desde el navegador de
+  FireCrawl (`executeJavascript`) tampoco devolvió datos utilizables en las pruebas.
+- **Modo B (páginas SEO)**: el parámetro `?departureDate=` se ignora; muestran la fecha más
+  cercana. Sirve para horarios + tarifa fija regional; para alta velocidad/vuelos es indicativo.
+- **Realidad de negocio**: para sep–oct 2026 muchas tarifas dinámicas (alta velocidad/vuelos)
+  aún no abren venta (~4 meses antes), así que el precio exacto de esas se confirma más cerca.
 
 ## booking_url
 
