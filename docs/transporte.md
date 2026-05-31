@@ -40,21 +40,33 @@ Recorrido: Milán → Bérgamo → Venecia → Bérgamo → **París** → Roma 
 | 12 | dom 11 oct | Volterra → **Milán** (cerca MXP) | Por buscar | Por buscar | Por buscar | Noche cerca de MXP para vuelo 12 oct 06:55 |
 
 > Vuelos CUN⇄MXP (26 sep / 12 oct) están en `docs/vuelos.md` (Condor, reservado ✅).
+> Datos de rome2rio + Omio (mayo 2026). Regionales = tarifa fija; alta velocidad/vuelos =
+> precio dinámico, confirmar al abrir ventas (~jun 2026). Tipo de cambio ref €1≈20 MXN; €≈USD.
+
+## Totales estimados (transporte terrestre + 2 vuelos internos)
+
+Suma de los recomendados (por persona), rango bajo–alto:
+
+| Escenario | USD/pers. | USD/pareja | MXN/pareja (≈) |
+| --- | --- | --- | --- |
+| **Reservando con tiempo** (tarifas bajas) | ~$200 | **~$400** | **≈ $7,200** |
+| Reservando tarde / tarifas altas | ~$640 | ~$1,280 | ≈ $23,000 |
+
+Los **dos vuelos** (Bérgamo→París, París→Roma) son ~45% del total y lo que más varía:
+reservarlos pronto es la mayor palanca de ahorro. Los trenes regionales (Como, Venecia↔Padua,
+Florencia↔Pisa) son tarifa fija y baratos. (MXN con ~18 MXN/USD.)
 
 ## Cómo llenar esta tabla
 
-Con la skill, un tramo a la vez (no predefinas modo). **Fecha exacta** = pega la URL de tu
-búsqueda de Omio; **panorama** = por ciudades:
+Con la skill, automático, un tramo a la vez (no predefinas modo). Cruza rome2rio (panorama
+multimodal: rango de precio, duración, frecuencia) + Omio (horarios reales / tarifa fija):
 
 ```bash
-# Exacto (recomendado): busca en Omio y pega la URL de resultados
-node .claude/skills/busqueda-transporte/scripts/omio_search.mjs --url "https://www.omio.com/app/search-frontend/results/<ID>/train?locale=en"
-
-# Panorama por ciudades (fecha cercana / tarifa fija regional)
-node .claude/skills/busqueda-transporte/scripts/omio_search.mjs --from milan --to como
+node .claude/skills/busqueda-transporte/scripts/buscar_transporte.mjs --from milan --to como
+node .claude/skills/busqueda-transporte/scripts/buscar_transporte.mjs --from como  --to bergamo
 ```
 
-Al confirmar una opción con Vicente, se actualiza la fila (modo/duración/€) aquí.
+Al confirmar una opción con Vicente, se actualiza la fila (modo/duración/precio) aquí.
 
 ## Notas y palancas de ahorro
 
