@@ -16,7 +16,7 @@ tener todo el contexto necesario para trabajar.
 - **Origen / destino:** Cancún (CUN) ⇄ Milán Malpensa (MXP)
 - **Fechas:** vie 25 sep 2026 → lun 12 oct 2026 (16 noches en tierra)
 - **Aerolínea (internacional):** Condor (Economy), Booking #16267799, ~$17,888 MXN total ✅
-- **Estructura (rediseño con París):** Milán → Como → Bérgamo → Verona → Venecia → Padua → Bérgamo → ✈️ **París (3 noches)** → ✈️ Roma → Florencia → Pisa → **Volterra (reservado 9–11 oct)** → Milán → vuelo
+- **Estructura (ruta v1, con París):** Milán → Como → Bérgamo → Verona → Venecia → Padua → Bérgamo → ✈️ **París (3 noches)** → ✈️ Roma → Florencia → Pisa → **Volterra (reservado 9–11 oct)** → Milán → vuelo
 - **2 vuelos low-cost nuevos por reservar:** Bérgamo→París (2 oct), París→Roma (5 oct)
 - **Único hospedaje confirmado:** Hotel La Locanda, Volterra (9–11 oct)
 
@@ -32,7 +32,7 @@ tener todo el contexto necesario para trabajar.
 | `docs/hospedajes.md` | Tracker de hospedajes (1 confirmado, 8 pendientes). |
 | `docs/ciudades.md` | Clasificación de ciudades y decisiones tomadas. |
 | `docs/itinerario.md` | Recorrido día por día (16 noches). |
-| `docs/transporte.md` | Estimación de costos de transporte entre ciudades. |
+| `docs/transporte.md` | Ruta vigente y búsquedas de transporte (fuente canónica). |
 | `docs/presupuesto.md` | Presupuesto y gastos. |
 | `docs/pendientes.md` | Lista de pendientes (reservas y documentos). |
 
@@ -47,6 +47,12 @@ tener todo el contexto necesario para trabajar.
 - Convención de ciudades: sin asterisco = imprescindible · _con asterisco = eliminable_.
 - Tipo de cambio referencia (cuando aplique): 1 USD = 17.20 MXN.
 - Fechas siempre en formato `día DD mes` (ej. `vie 9 oct`) para evitar ambigüedad.
+- **Ruta canónica:** `docs/transporte.md` es la fuente de la ruta vigente; todo cambio de
+  itinerario/ruta se refleja ahí.
+- **Búsqueda de transporte:** usar la skill `busqueda-transporte` (rome2rio + Omio vía FireCrawl,
+  multimodal tren/bus/vuelo, on-demand; `--date` da precios reales del día). El modo se decide con
+  datos reales por tramo, no se predefine. Requiere `FIRECRAWL_API_KEY` en el entorno (no se
+  commitea). Para verificación en vivo de Omio también está `tools/` (sesión local CDP).
 
 ---
 

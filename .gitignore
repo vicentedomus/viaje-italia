@@ -8,3 +8,7 @@ Thumbs.db
 # Documentos sensibles locales (no subir confirmaciones/pdf con datos personales)
 *.local.md
 /private/
+
+# Secretos / entorno (FIRECRAWL_API_KEY, etc. — nunca subir)
+.env
+.env.*
