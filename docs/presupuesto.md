@@ -1,15 +1,20 @@
 # Presupuesto
 
+> Plan rediseñado (Italia + París). 🔎 = confirmar en vivo (Omio, sesión local).
+
 | Concepto | MXN | Estado |
 | --- | --- | --- |
-| Vuelos (Economy redondo) | $17,888 | ✅ Pagado |
+| Vuelos internacionales (CUN⇄MXP, Condor) | $17,888 | ✅ Pagado |
+| Vuelo BGY → París (pareja, con maleta) | ≈$3,000 🔎 | ⏳ Por reservar |
+| Vuelo París → Roma (pareja, con maleta) | ≈$3,400 🔎 | ⏳ Por reservar |
+| Trenes / buses entre ciudades (pareja) | ≈$7,700 | 🔵 Estimado · ⏳ por reservar |
+| Transfers de aeropuerto (pareja) | ≈$1,000 | 🔵 Estimado |
 | Hospedaje Volterra (2 noches) | ≈$4,903 | 🟡 Reservado, paga en hotel |
-| Hospedaje resto (~13 noches) | — | ⏳ Por reservar |
-| Trenes / transporte entre ciudades (pareja) | ≈$13,000 (sin vuelo interno) | 🔵 Estimado · ⏳ por reservar |
-| Vuelo interno Brindisi→Pisa (pareja, con maleta) | ≈$2,400 | 🔵 Estimado · ⏳ por reservar |
+| Hospedaje resto (~14 noches: Milán, Bérgamo×2, Venecia, París×3, Roma, Florencia, Milán) | — | ⏳ Por reservar |
 | Comidas | — | ⏳ Por estimar |
-| Actividades / entradas | — | ⏳ Por estimar |
+| Actividades / entradas (Uffizi, Vaticano, Coliseo, Louvre…) | — | ⏳ Por estimar |
 
-> Transporte: estimación comprando con anticipación (≈€700–800 / pareja en total).
-> Desglose tramo por tramo en [`transporte.md`](./transporte.md).
+> **Transporte total estimado: ≈ $16,000 MXN / pareja** (trenes + 2 vuelos + transfers),
+> reservando con anticipación. Los 2 vuelos son lo más volátil → confirmar primero.
+> Desglose en [`transporte.md`](./transporte.md).
 > Tipo de cambio referencia: 1 USD = 17.20 MXN · €1 ≈ 20 MXN.

@@ -1,19 +1,22 @@
 # Hospedajes
 
+> Plan rediseñado (29 may 2026). Único confirmado: **Volterra**. El resto, pendiente.
+
 ## Tracker
 
 | Ciudad | Hotel | Check-in | Check-out | Noches | Huéspedes | Confirmación | Precio (MXN) | Pago | Cancelación gratis hasta | Estado |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Volterra | Hotel La Locanda | vie 9 oct | dom 11 oct | 2 | 2 | 6714.521.322 | ≈ $4,903 | En hotel (EUR) | 6 oct 2026 | ✅ Reservado |
 | Milán (inicio) | — | sáb 26 sep | lun 28 sep | 2 | 2 | — | — | — | — | ⏳ Pendiente |
-| Venecia | — | lun 28 sep | mié 30 sep | 2 | 2 | — | — | — | — | ⏳ Pendiente |
-| Bolonia | — | mié 30 sep | jue 1 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
-| Florencia | — | jue 1 oct | sáb 3 oct | 2 | 2 | — | — | — | — | ⏳ Pendiente |
-| Roma | — | sáb 3 oct | mar 6 oct | 3 | 2 | — | — | — | — | ⏳ Pendiente |
-| Nápoles | — | mar 6 oct | mié 7 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
-| Lecce | — | mié 7 oct | jue 8 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
-| Pisa / La Spezia | — | jue 8 oct | vie 9 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
+| Bérgamo | — | lun 28 sep | mar 29 sep | 1 | 2 | — | — | — | — | ⏳ Pendiente |
+| Venecia | — | mar 29 sep | jue 1 oct | 2 | 2 | — | — | — | — | ⏳ Pendiente |
+| Bérgamo (cerca BGY) | — | jue 1 oct | vie 2 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
+| París | — | vie 2 oct | lun 5 oct | 3 | 2 | — | — | — | — | ⏳ Pendiente |
+| Roma | — | lun 5 oct | jue 8 oct | 3 | 2 | — | — | — | — | ⏳ Pendiente |
+| Florencia | — | jue 8 oct | vie 9 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
+| Volterra | Hotel La Locanda | vie 9 oct | dom 11 oct | 2 | 2 | 6714.521.322 | ≈ $4,903 | En hotel (EUR) | 6 oct 2026 | ✅ Reservado |
 | Milán (cerca MXP) | — | dom 11 oct | lun 12 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
+
+**Total: 16 noches** (Milán 2 + Bérgamo 1 + Venecia 2 + Bérgamo 1 + París 3 + Roma 3 + Florencia 1 + Volterra 2 + Milán 1).
 
 ## Detalle del único hospedaje confirmado
 
@@ -32,4 +35,11 @@
 - ⚠️ **Zona de tráfico restringido (ZTL):** si llegan en auto, contactar al hotel antes
 - **Cancelación:** gratis hasta 6 oct 2026 23:59 · desde 7 oct €116 · desde 10 oct €232
 - **Correo de confirmación:** vichomiguel@hotmail.com
-- Confirmación PDF adjunta en la página de Notion
+
+## Notas para reservar
+
+- **Bérgamo del 1 oct:** elegir cerca del aeropuerto (BGY) o con transporte fácil al
+  aeropuerto, por el vuelo temprano del 2 oct a París.
+- **Milán del 11 oct:** cerca de Malpensa (MXP) o de un transporte directo al aeropuerto
+  (vuelo 06:55 del 12 oct).
+- **Volterra ZTL:** si llegan en auto, avisar al hotel.

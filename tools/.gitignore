@@ -1,0 +1,6 @@
+# Capturas efímeras de Omio (pueden contener datos personales)
+captures/
+
+# Python
+__pycache__/
+*.pyc
