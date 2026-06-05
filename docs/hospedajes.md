@@ -1,6 +1,6 @@
 # Hospedajes
 
-> Plan rediseñado (29 may 2026). Único confirmado: **Volterra**. El resto, pendiente.
+> Plan rediseñado (ruta v1 con París). Confirmados: **Volterra** y **París**. Faltan 7.
 
 ## Tracker
 
@@ -10,7 +10,7 @@
 | Bérgamo | — | lun 28 sep | mar 29 sep | 1 | 2 | — | — | — | — | ⏳ Pendiente |
 | Venecia | — | mar 29 sep | jue 1 oct | 2 | 2 | — | — | — | — | ⏳ Pendiente |
 | Bérgamo (cerca BGY) | — | jue 1 oct | vie 2 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
-| París | — | vie 2 oct | lun 5 oct | 3 | 2 | — | — | — | — | ⏳ Pendiente |
+| París | Apartment (Airbnb, host Remy) | vie 2 oct | lun 5 oct | 3 | 2 | HMEXDMFK55 | — | Airbnb | — | ✅ Reservado |
 | Roma | — | lun 5 oct | jue 8 oct | 3 | 2 | — | — | — | — | ⏳ Pendiente |
 | Florencia | — | jue 8 oct | vie 9 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
 | Volterra | Hotel La Locanda | vie 9 oct | dom 11 oct | 2 | 2 | 6714.521.322 | ≈ $4,903 | En hotel (EUR) | 6 oct 2026 | ✅ Reservado |
@@ -18,7 +18,17 @@
 
 **Total: 16 noches** (Milán 2 + Bérgamo 1 + Venecia 2 + Bérgamo 1 + París 3 + Roma 3 + Florencia 1 + Volterra 2 + Milán 1).
 
-## Detalle del único hospedaje confirmado
+## Detalle de hospedajes confirmados
+
+**Apartment in Paris (Airbnb) — París (2–5 oct · 3 noches)**
+
+- **Estado:** Reservado vía Airbnb · **Confirmación:** `HMEXDMFK55`
+- **Anfitrión:** Remy · 2 huéspedes
+- **Dirección:** Rue des Gravilliers, 75003 París (Le Marais, 3e arrondissement) — muy céntrico
+- **Check-in:** vie 2 oct, después de 15:00 · **Check-out:** lun 5 oct, antes de 11:00
+- **Servicio:** guarda-equipaje disponible antes del check-in
+- ✅ Encaja con los vuelos: llega 2 oct (Ryanair a Beauvais, 08:05) y sale 5 oct (Wizz desde Orly, 09:55)
+- ⚠️ El 5 oct el vuelo (Orly 09:55) sale **antes** del check-out: dejar el Airbnb temprano (~07:00) directo a Orly. RER B/Orlybus ~40–60 min desde Le Marais
 
 **Hotel La Locanda — Volterra (9–11 oct · 2 noches)**
 

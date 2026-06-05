@@ -18,7 +18,7 @@ tener todo el contexto necesario para trabajar.
 - **Aerolínea (internacional):** Condor (Economy), Booking #16267799, ~$17,888 MXN total ✅
 - **Estructura (ruta v1, con París):** Milán → Como → Bérgamo → Verona → Venecia → Padua → Bérgamo → ✈️ **París (3 noches)** → ✈️ Roma → Florencia → Pisa → **Volterra (reservado 9–11 oct)** → Milán → vuelo
 - **2 vuelos low-cost reservados ✅:** Bérgamo→París (2 oct, Ryanair `L8IW5R`), París→Roma (5 oct, Wizz Air `LIU7PI`)
-- **Único hospedaje confirmado:** Hotel La Locanda, Volterra (9–11 oct)
+- **Hospedajes confirmados:** Hotel La Locanda, Volterra (9–11 oct) · Airbnb París (2–5 oct)
 
 ---
 
@@ -29,7 +29,7 @@ tener todo el contexto necesario para trabajar.
 | `CLAUDE.md` | Este archivo. Contexto general + convenciones de trabajo. |
 | `README.md` | Vista humana rápida con estado del viaje. |
 | `docs/vuelos.md` | Detalle de vuelos reservados y pendientes. |
-| `docs/hospedajes.md` | Tracker de hospedajes (1 confirmado, 8 pendientes). |
+| `docs/hospedajes.md` | Tracker de hospedajes (2 confirmados, 7 pendientes). |
 | `docs/ciudades.md` | Clasificación de ciudades y decisiones tomadas. |
 | `docs/itinerario.md` | Recorrido día por día (16 noches). |
 | `docs/transporte.md` | Ruta vigente y búsquedas de transporte (fuente canónica). |
@@ -63,7 +63,8 @@ tener todo el contexto necesario para trabajar.
 - ✅ Hotel La Locanda (Volterra, 9–11 oct) reservado, pago en hotel.
 - ✅ **2 vuelos low-cost reservados:** Bérgamo→París (2 oct, Ryanair `L8IW5R`) y París→Roma (5 oct, Wizz Air `LIU7PI`, maleta 20 kg).
 - 🔵 Itinerario rediseñado con **París** (3 noches) y **Bérgamo** como hub; sur de Italia fuera.
-- ⏳ 8 hospedajes pendientes de reservar.
+- ✅ Hospedaje París reservado (Airbnb Le Marais, 2–5 oct, `HMEXDMFK55`).
+- ⏳ 7 hospedajes pendientes de reservar.
 - ⏳ Trenes/buses entre ciudades pendientes (Frecciarossa + regionales).
 - ⏳ Entradas a museos/atracciones pendientes (Uffizi, Vaticano, Coliseo, Louvre…).
 - ⚠️ Transfers de aeropuerto París: llega a **Beauvais**, sale de **Orly** (distintos).
