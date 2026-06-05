@@ -2,7 +2,7 @@
 
 ## Reservas
 
-- [ ] Hospedajes restantes (8 entradas en el [tracker](./hospedajes.md))
+- [ ] Hospedajes restantes (7 entradas en el [tracker](./hospedajes.md); París ✅ reservado)
 - [x] **Vuelo Bérgamo (BGY) → París** (2 oct) — Ryanair `L8IW5R` ✅
 - [x] **Vuelo París → Roma (FCO)** (5 oct) — Wizz Air `LIU7PI` ✅ (maleta 20 kg)
 - [ ] Frecciarossa Roma→Florencia y Volterra→Milán — comprar anticipado
