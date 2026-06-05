@@ -26,21 +26,33 @@
 
 **Total regreso:** 16h 30min. Salida muy temprana → conviene dormir cerca de MXP la noche del 11–12 oct.
 
-## Vuelos intra-Europa (nuevos · por reservar)
+## Vuelos intra-Europa (reservados ✅)
 
-El rediseño con París agrega 2 vuelos low-cost, **no incluidos** en la reserva Condor.
-Confirmar precio/horario en vivo (Omio, sesión local). Reservar **maleta documentada**
-al comprar (más barata que en aeropuerto).
+Los 2 vuelos low-cost de la ruta v1 (con París), **no incluidos** en la reserva Condor.
 
-| Tramo | Fecha | Aerolínea probable | Notas |
-| --- | --- | --- | --- |
-| Bérgamo (BGY) → París | 2 oct (temprano) | Ryanair / low-cost | Verificar si llega a Beauvais (lejos) vs Orly/CDG 🔎 |
-| París → Roma (FCO) | 5 oct (temprano) | ITA / Vueling / low-cost | 🔎 |
+### Bérgamo → París — vie 2 oct 2026 ✅
+
+- **Aerolínea:** Ryanair · **Reserva:** `L8IW5R` · 2 pasajeros
+- **Vuelo FR3432:** Milán Bérgamo (BGY) **06:30** → **París Beauvais (BVA)** 08:05 · 1h 35min
+- Check-in online abre 1 oct 06:30 (early 3 ago). Requiere la **app de Ryanair** para el pase de abordar.
+- ⚠️ Llega a **Beauvais (BVA)**, lejos del centro (~1h15 en shuttle, ~€17/persona).
+
+### París → Roma — lun 5 oct 2026 ✅
+
+- **Aerolínea:** Wizz Air · **Reserva:** `LIU7PI` · 2 pasajeros (Vicente + Natasha)
+- **Vuelo W46062:** **París Orly (ORY)** **09:55** → Roma Fiumicino (FCO) 12:00 · 2h 05min · ✅ Confirmado
+- **Equipaje:** maleta documentada 20 kg + trolley (Wizz Priority) + bolsa bajo asiento · asiento 6A
+- Check-in online abre ~5 jul (92 días antes).
+
+> ⚠️ **Sale de Orly, no de Beauvais:** los dos aeropuertos de París son distintos. Como hay
+> 3 noches en París no afecta, pero planear el transfer al **aeropuerto correcto** cada vez.
 
 ## Pendientes de vuelo
 
 - [x] Selección de asientos (vuelo internacional Condor)
+- [x] Reservar vuelo Bérgamo → París (2 oct) — Ryanair `L8IW5R` ✅
+- [x] Reservar vuelo París → Roma (5 oct) — Wizz Air `LIU7PI` ✅ (maleta 20 kg incluida)
 - [ ] Check-in online Condor (24–48 h antes)
-- [ ] Guardar pase de abordar
-- [ ] Reservar vuelo Bérgamo → París (2 oct) con maleta
-- [ ] Reservar vuelo París → Roma (5 oct) con maleta
+- [ ] Check-in online Ryanair (abre 1 oct) — **descargar app Ryanair** para el pase
+- [ ] Check-in online Wizz Air (abre ~5 jul)
+- [ ] Guardar pases de abordar (Condor, Ryanair, Wizz)

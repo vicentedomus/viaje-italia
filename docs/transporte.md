@@ -37,8 +37,8 @@ mejor equilibrio precio/tiempo/frecuencia; el modo se decidió con datos reales,
 | 4 | mar 29 sep | Verona → **Venecia** | 🚆 Tren Regionale Veloce | 1h10 | **~$200** | Directo c/20 min. Bus FlixBus 1h35–2h $198. Noche en Venecia |
 | 5 | jue 1 oct | Venecia → **Padua** (parada) | 🚆 Tren Regionale | 26 min | **$90** | Directo c/10 min. Más rápido: Frecce 14 min $234. Bus $144. Parada en Padua |
 | 6 | jue 1 oct | Padua → **Bérgamo** | 🚌 Bus FlixBus | 2h10 | **$414** | 06:45→08:55. Tren Trenitalia 3h14 $378 (más barato, más lento). Auto 1h48. Noche en Bérgamo |
-| 7 | vie 2 oct | ✈️ Bérgamo (BGY) → **París** | ✈️ Vuelo (Ryanair, BGY→Beauvais) | 3h22 (con traslados) | **$923–2,360** 🔎 | Diario. Más barato es bus 13h $828; tren 8h45 $3,490+. Reservar maleta al comprar. 3 noches en París |
-| 8 | lun 5 oct | ✈️ París → **Roma** | ✈️ Vuelo (ITA/Transavia/Vueling) | ~2h10 (vuelo) | **$2,016–4,464** 🔎 | c/2h. Alt baratas lentas: bus 23h $1,440; tren 10h $2,160. 3 noches en Roma |
+| 7 | vie 2 oct | ✈️ Bérgamo (BGY) → **París** | ✈️ Ryanair FR3432 ✅ | 1h35 vuelo | **reservado** (`L8IW5R`) | BGY 06:30 → **Beauvais (BVA)** 08:05. +transfer BVA→centro ~€17/p. 3 noches en París |
+| 8 | lun 5 oct | ✈️ París → **Roma** | ✈️ Wizz Air W46062 ✅ | 2h05 vuelo | **reservado** (`LIU7PI`) | **Orly (ORY)** 09:55 → FCO 12:00. Maleta 20 kg incl. 3 noches en Roma |
 | 9 | jue 8 oct | Roma → **Florencia** | 🚆 Tren AV (Italo/Frecciarossa) | 1h12–1h37 | **$514–587** | Directo c/15 min (Italo 09:05→10:17 $520). Bus FlixBus 3h15 $216. Noche en Florencia |
 | 10 | vie 9 oct | Florencia → **Pisa** (parada) | 🚆 Tren Regionale | 51 min–1h23 | **$182** | Directo c/30 min (07:00→07:51). Bus 1h15 $234. Parada en Pisa |
 | 11 | vie 9 oct | Pisa → **Volterra** | 🚆🚌 Tren a Pontedera + bus AT | ~2h35 | **~$180** ⚠️ | No hay directo; rome2rio no da horarios exactos (pueblo chico). Auto 1h08. 2 noches en Volterra ✅ |
