@@ -3,11 +3,12 @@
 ## Reservas
 
 - [ ] Hospedajes restantes (8 entradas en el [tracker](./hospedajes.md))
-- [ ] **Vuelo Bérgamo (BGY) → París** (2 oct, temprano) — con maleta 🔎
-- [ ] **Vuelo París → Roma (FCO)** (5 oct, temprano) — con maleta 🔎
+- [x] **Vuelo Bérgamo (BGY) → París** (2 oct) — Ryanair `L8IW5R` ✅
+- [x] **Vuelo París → Roma (FCO)** (5 oct) — Wizz Air `LIU7PI` ✅ (maleta 20 kg)
 - [ ] Frecciarossa Roma→Florencia y Volterra→Milán — comprar anticipado
 - [ ] Trenes regionales (Como, Verona, Padua, Bérgamo, Florencia–Pisa) — se compran el día
 - [ ] Entradas Uffizi, Vaticano, Coliseo (Roma), Louvre / Torre Eiffel (París)
+- [ ] **Transfers de aeropuerto en París:** Beauvais (BVA, llegada 2 oct) y Orly (ORY, salida 5 oct) — son distintos
 
 ## Documentos
 
@@ -18,4 +19,6 @@
 ## Operativos del vuelo
 
 - [ ] Check-in online Condor (24–48 h antes)
-- [ ] Guardar pase de abordar
+- [ ] Check-in online Ryanair (abre 1 oct) — descargar **app Ryanair** para el pase
+- [ ] Check-in online Wizz Air (abre ~5 jul)
+- [ ] Guardar pases de abordar (Condor, Ryanair, Wizz)

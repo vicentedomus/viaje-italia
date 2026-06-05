@@ -17,7 +17,7 @@ tener todo el contexto necesario para trabajar.
 - **Fechas:** vie 25 sep 2026 → lun 12 oct 2026 (16 noches en tierra)
 - **Aerolínea (internacional):** Condor (Economy), Booking #16267799, ~$17,888 MXN total ✅
 - **Estructura (ruta v1, con París):** Milán → Como → Bérgamo → Verona → Venecia → Padua → Bérgamo → ✈️ **París (3 noches)** → ✈️ Roma → Florencia → Pisa → **Volterra (reservado 9–11 oct)** → Milán → vuelo
-- **2 vuelos low-cost nuevos por reservar:** Bérgamo→París (2 oct), París→Roma (5 oct)
+- **2 vuelos low-cost reservados ✅:** Bérgamo→París (2 oct, Ryanair `L8IW5R`), París→Roma (5 oct, Wizz Air `LIU7PI`)
 - **Único hospedaje confirmado:** Hotel La Locanda, Volterra (9–11 oct)
 
 ---
@@ -56,14 +56,14 @@ tener todo el contexto necesario para trabajar.
 
 ---
 
-## Estado actual (29 may 2026)
+## Estado actual (4 jun 2026)
 
 - ✅ Vuelos internacionales reservados y pagados (Condor CUN⇄MXP, Booking #16267799).
 - ✅ Selección de asientos hecha (vuelo Condor).
 - ✅ Hotel La Locanda (Volterra, 9–11 oct) reservado, pago en hotel.
+- ✅ **2 vuelos low-cost reservados:** Bérgamo→París (2 oct, Ryanair `L8IW5R`) y París→Roma (5 oct, Wizz Air `LIU7PI`, maleta 20 kg).
 - 🔵 Itinerario rediseñado con **París** (3 noches) y **Bérgamo** como hub; sur de Italia fuera.
 - ⏳ 8 hospedajes pendientes de reservar.
-- ⏳ **2 vuelos low-cost** por reservar: Bérgamo→París (2 oct), París→Roma (5 oct).
 - ⏳ Trenes/buses entre ciudades pendientes (Frecciarossa + regionales).
 - ⏳ Entradas a museos/atracciones pendientes (Uffizi, Vaticano, Coliseo, Louvre…).
-- 🔎 Precios/horarios a confirmar en vivo (Omio) desde sesión local.
+- ⚠️ Transfers de aeropuerto París: llega a **Beauvais**, sale de **Orly** (distintos).
