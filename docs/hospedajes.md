@@ -1,12 +1,12 @@
 # Hospedajes
 
-> Plan rediseñado (ruta v1 con París). Confirmados: **Volterra** y **París**. Faltan 7.
+> Plan rediseñado (ruta v1 con París). Confirmados: **Milán inicio**, **París** y **Volterra**. Faltan 6.
 
 ## Tracker
 
 | Ciudad | Hotel | Check-in | Check-out | Noches | Huéspedes | Confirmación | Precio (MXN) | Pago | Cancelación gratis hasta | Estado |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Milán (inicio) | — | sáb 26 sep | lun 28 sep | 2 | 2 | — | — | — | — | ⏳ Pendiente |
+| Milán (inicio) | Milano loft di ringhiera (Airbnb · host Nikbit) | sáb 26 sep | lun 28 sep | 2 | 2 | HMH2QSPXD4 | ≈ $6,177 | Airbnb | 21 sep 2026 | ✅ Reservado |
 | Bérgamo | — | lun 28 sep | mar 29 sep | 1 | 2 | — | — | — | — | ⏳ Pendiente |
 | Venecia | — | mar 29 sep | jue 1 oct | 2 | 2 | — | — | — | — | ⏳ Pendiente |
 | Bérgamo (cerca BGY) | — | jue 1 oct | vie 2 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
@@ -19,6 +19,16 @@
 **Total: 16 noches** (Milán 2 + Bérgamo 1 + Venecia 2 + Bérgamo 1 + París 3 + Roma 3 + Florencia 1 + Volterra 2 + Milán 1).
 
 ## Detalle de hospedajes confirmados
+
+**Milano loft di ringhiera (Airbnb) — Milán inicio (26–28 sep · 2 noches)**
+
+- **Estado:** Reservado vía Airbnb · **Confirmación:** `HMH2QSPXD4`
+- **Anfitrión:** Nikbit · 2 huéspedes · titular: Vicente Solís
+- **Dirección:** Via Giovanni Battista Niccolini 25, Milán (zona Chinatown / Via Sarpi / Arco della Pace, noroeste) · GPS ≈ 45.4808, 9.1773
+- **Precio:** ≈ **$6,177 MXN** · pagado vía Airbnb
+- **Cancelación:** gratis hasta **lun 21 sep 15:00**; después, cancelando antes del check-in (26 sep 15:00) hay **reembolso parcial**
+- ⚠️ **Check-in online obligatorio por ley (Vikey)** — completar antes de llegar: código `RZK96DC1` → https://guest.vikey.it/checkin/RZK96DC1
+- ✅ Encaja con el vuelo: llegan a MXP sáb 26 sep 15:50 → primera tarde solo para llegar y descansar
 
 **Apartment in Paris (Airbnb) — París (2–5 oct · 3 noches)**
 
