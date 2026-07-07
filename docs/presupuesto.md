@@ -9,8 +9,10 @@
 | Vuelo París → Roma (pareja, con maleta) | ≈$3,400 🔎 | ⏳ Por reservar |
 | Trenes / buses entre ciudades (pareja) | ≈$7,700 | 🔵 Estimado · ⏳ por reservar |
 | Transfers de aeropuerto (pareja) | ≈$1,000 | 🔵 Estimado |
+| Hospedaje Milán inicio (2 noches, Airbnb) | ≈$6,177 | ✅ Reservado, pagado (Airbnb) |
+| Hospedaje Bérgamo (1 oct, NH Orio al Serio) | €161 (≈$3,220) | ✅ Reservado, prepagado (no reembolsable) |
 | Hospedaje Volterra (2 noches) | ≈$4,903 | 🟡 Reservado, paga en hotel |
-| Hospedaje resto (~14 noches: Milán, Bérgamo×2, Venecia, París×3, Roma, Florencia, Milán) | — | ⏳ Por reservar |
+| Hospedaje resto (~8 noches: Bérgamo 28 sep, Venecia, Roma, Florencia, Milán cerca MXP) | — | ⏳ Por reservar |
 | Comidas | — | ⏳ Por estimar |
 | Actividades / entradas (Uffizi, Vaticano, Coliseo, Louvre…) | — | ⏳ Por estimar |
 

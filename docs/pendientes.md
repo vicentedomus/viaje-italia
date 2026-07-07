@@ -2,7 +2,8 @@
 
 ## Reservas
 
-- [ ] Hospedajes restantes (7 entradas en el [tracker](./hospedajes.md); París ✅ reservado)
+- [ ] Hospedajes restantes (5 entradas en el [tracker](./hospedajes.md); Milán inicio, Bérgamo 1 oct y París ✅ reservados)
+- [ ] **Check-in online Vikey — Milán inicio** (obligatorio por ley): `RZK96DC1` → https://guest.vikey.it/checkin/RZK96DC1
 - [x] **Vuelo Bérgamo (BGY) → París** (2 oct) — Ryanair `L8IW5R` ✅
 - [x] **Vuelo París → Roma (FCO)** (5 oct) — Wizz Air `LIU7PI` ✅ (maleta 20 kg)
 - [ ] Frecciarossa Roma→Florencia y Volterra→Milán — comprar anticipado
