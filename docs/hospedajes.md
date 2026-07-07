@@ -1,6 +1,6 @@
 # Hospedajes
 
-> Plan rediseñado (ruta v1 con París). Confirmados: **Milán inicio**, **París** y **Volterra**. Faltan 6.
+> Plan rediseñado (ruta v1 con París). Confirmados: **Milán inicio**, **Bérgamo (1 oct)**, **París** y **Volterra**. Faltan 5.
 
 ## Tracker
 
@@ -9,7 +9,7 @@
 | Milán (inicio) | Milano loft di ringhiera (Airbnb · host Nikbit) | sáb 26 sep | lun 28 sep | 2 | 2 | HMH2QSPXD4 | ≈ $6,177 | Airbnb | 21 sep 2026 | ✅ Reservado |
 | Bérgamo | — | lun 28 sep | mar 29 sep | 1 | 2 | — | — | — | — | ⏳ Pendiente |
 | Venecia | — | mar 29 sep | jue 1 oct | 2 | 2 | — | — | — | — | ⏳ Pendiente |
-| Bérgamo (cerca BGY) | — | jue 1 oct | vie 2 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
+| Bérgamo (cerca BGY) | NH Orio al Serio Airport | jue 1 oct | vie 2 oct | 1 | 2 | 0200967529 | €161 (≈$3,220) | Prepagado (Apple Pay) | No reembolsable | ✅ Reservado |
 | París | Apartment (Airbnb, host Remy) | vie 2 oct | lun 5 oct | 3 | 2 | HMEXDMFK55 | — | Airbnb | — | ✅ Reservado |
 | Roma | — | lun 5 oct | jue 8 oct | 3 | 2 | — | — | — | — | ⏳ Pendiente |
 | Florencia | — | jue 8 oct | vie 9 oct | 1 | 2 | — | — | — | — | ⏳ Pendiente |
@@ -29,6 +29,17 @@
 - **Cancelación:** gratis hasta **lun 21 sep 15:00**; después, cancelando antes del check-in (26 sep 15:00) hay **reembolso parcial**
 - ⚠️ **Check-in online obligatorio por ley (Vikey)** — completar antes de llegar: código `RZK96DC1` → https://guest.vikey.it/checkin/RZK96DC1
 - ✅ Encaja con el vuelo: llegan a MXP sáb 26 sep 15:50 → primera tarde solo para llegar y descansar
+
+**NH Orio al Serio Airport — Bérgamo (1–2 oct · 1 noche, cerca BGY)**
+
+- **Estado:** Reservado y **prepagado** (Apple Pay) · **No reembolsable** · vía NH Hotels
+- **Nº de reserva:** `0200967529`
+- **Booker:** Vicente Solís · vicentesolise@hotmail.com · 2 adultos · 1 habitación
+- **Habitación:** Standard Room · 1 cama King · solo habitación (sin desayuno)
+- **Check-in:** jue 1 oct, 15:00 · **Check-out:** vie 2 oct, 12:00
+- **Precio:** **€161.00** (≈ $3,220 MXN) · IVA incluido · **city tax aparte** (se paga en el hotel)
+- **Dirección:** Via Portico 75, 24050 Bérgamo, Italia · **Tel:** +39 035 4212011 · nhorioalserio@nh-hotels.com
+- ✅ Junto al aeropuerto **BGY** para el vuelo temprano del 2 oct (Ryanair 06:30 a París)
 
 **Apartment in Paris (Airbnb) — París (2–5 oct · 3 noches)**
 
